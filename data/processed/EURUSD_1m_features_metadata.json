@@ -1,0 +1,376 @@
+{
+  "schema_version": 1.0,
+  "feature_version": 1.0,
+  "timestamp": "2025-11-30T15:35:59.468368",
+  "computed_features": {
+    "dc_return_x": {
+      "category": "intrinsic_time",
+      "computation_time": 8.1e-05,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "overshoot_return_x": {
+      "category": "intrinsic_time",
+      "computation_time": 4e-05,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "event_frequency": {
+      "category": "intrinsic_time",
+      "computation_time": 0.000472,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "clustering": {
+      "category": "intrinsic_time",
+      "computation_time": 0.00118,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "multi_delta_agreement": {
+      "category": "intrinsic_time",
+      "computation_time": 3.6e-05,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "intrinsic_trend_strength": {
+      "category": "intrinsic_time",
+      "computation_time": 3.3e-05,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "realized_vol_5m": {
+      "category": "volatility",
+      "computation_time": 0.000795,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "realized_vol_15m": {
+      "category": "volatility",
+      "computation_time": 0.000657,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "realized_vol_60m": {
+      "category": "volatility",
+      "computation_time": 0.000679,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "bipower_variation": {
+      "category": "volatility",
+      "computation_time": 0.000749,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "parkinson_volatility": {
+      "category": "volatility",
+      "computation_time": 0.000617,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "skew": {
+      "category": "volatility",
+      "computation_time": 0.000645,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "kurtosis": {
+      "category": "volatility",
+      "computation_time": 0.000784,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "variance_ratio": {
+      "category": "volatility",
+      "computation_time": 0.001042,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "hurst_exponent": {
+      "category": "volatility",
+      "computation_time": 0.270235,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "micro_price": {
+      "category": "microstructure",
+      "computation_time": 5e-05,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "synthetic_spread": {
+      "category": "microstructure",
+      "computation_time": 0.000612,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "relative_spread": {
+      "category": "microstructure",
+      "computation_time": 0.000205,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "wick_ratio": {
+      "category": "microstructure",
+      "computation_time": 0.000558,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "body_ratio": {
+      "category": "microstructure",
+      "computation_time": 0.000788,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "rejection_wicks": {
+      "category": "microstructure",
+      "computation_time": 0.000878,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "standardized_range": {
+      "category": "microstructure",
+      "computation_time": 0.000809,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "volume_adv_ratio": {
+      "category": "microstructure",
+      "computation_time": 0.000551,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "sma_ratio_10_20": {
+      "category": "trend",
+      "computation_time": 0.000823,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "ema_ratio_12_26": {
+      "category": "trend",
+      "computation_time": 0.000584,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "adx": {
+      "category": "trend",
+      "computation_time": 0.004734,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "trend_strength": {
+      "category": "trend",
+      "computation_time": 0.001264,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "price_position": {
+      "category": "trend",
+      "computation_time": 0.001601,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "carry_factor": {
+      "category": "fx_factors",
+      "computation_time": 0.000572,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "momentum_factor": {
+      "category": "fx_factors",
+      "computation_time": 0.000735,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "value_factor": {
+      "category": "fx_factors",
+      "computation_time": 0.000842,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "volatility_factor": {
+      "category": "fx_factors",
+      "computation_time": 0.001502,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "correlation_rolling": {
+      "category": "cross_asset",
+      "computation_time": 0.001888,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "relative_strength": {
+      "category": "cross_asset",
+      "computation_time": 0.000547,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "cross_asset_momentum": {
+      "category": "cross_asset",
+      "computation_time": 0.000205,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "london_session": {
+      "category": "session",
+      "computation_time": 0.009863,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "new_york_session": {
+      "category": "session",
+      "computation_time": 0.00959,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "asia_session": {
+      "category": "session",
+      "computation_time": 0.009083,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "session_overlap": {
+      "category": "session",
+      "computation_time": 0.014262,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "session_volatility": {
+      "category": "session",
+      "computation_time": 0.023387,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "bid_ask_spread": {
+      "category": "liquidity",
+      "computation_time": 0.000114,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "spread_percentile": {
+      "category": "liquidity",
+      "computation_time": 0.993221,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "liquidity_score": {
+      "category": "liquidity",
+      "computation_time": 0.007575,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "overshoot_ratio_x": {
+      "category": "intrinsic_time",
+      "computation_time": 0.000393,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "volatility_of_vol": {
+      "category": "volatility",
+      "computation_time": 0.001197,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    },
+    "jump_component": {
+      "category": "volatility",
+      "computation_time": 0.002002,
+      "shape": [
+        9914
+      ],
+      "null_count": 0
+    }
+  },
+  "parameters": {}
+}

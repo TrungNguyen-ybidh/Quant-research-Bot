@@ -1,0 +1,194 @@
+# Quantitative Research Bot Configuration
+# All system parameters are defined here - no hard-coded values
+
+# Data Source Configuration
+data_source:
+  provider: "IBKR"  # Options: IBKR, ib_insync
+  host: "127.0.0.1"
+  port: 7497  # 7496=LIVE, 7497=PAPER, 4001=GW LIVE, 4002=GW PAPER
+  client_id: 10
+  timeout: 15  # seconds
+
+# Timeframes Configuration
+# List of timeframes to collect data for
+timeframes:
+  - "1 min"
+  - "5 mins"
+  - "15 mins"
+  - "1 hour"
+  - "1 day"
+
+# Historical Data Request Configuration
+# IBKR requires durationStr format (e.g., "365 D", "1 Y", "6 M")
+historical_request:
+  bar_size: "1 hour"  # Bar size for historical data requests
+  duration: "365 D"    # Duration string for incremental updates (e.g., "365 D", "1 Y", "6 M")
+  whatToShow: "MIDPOINT"  # Best for FX: MIDPOINT, TRADES, BID, ASK
+  
+  # First download durations (used when no existing data found)
+  # Maps timeframe to initial historical data duration
+  first_download_duration:
+    "1 min": "7 D"       # 7 days for 1-minute bars (reduced - IBKR may limit large requests)
+    "5 mins": "30 D"     # 30 days for 5-minute bars
+    "15 mins": "90 D"    # 90 days for 15-minute bars
+    "1 hour": "365 D"    # 1 year for 1-hour bars
+    "1 day": "3650 D"    # 10 years for daily bars
+  
+  # Available bar sizes: 1 sec, 5 secs, 10 secs, 15 secs, 30 secs,
+  #                      1 min, 2 mins, 3 mins, 5 mins, 10 mins, 15 mins, 20 mins, 30 mins,
+  #                      1 hour, 2 hours, 3 hours, 4 hours, 8 hours, 1 day, 1 week, 1 month
+  #
+  # Duration format: "N D" (days), "N W" (weeks), "N M" (months), "N Y" (years)
+
+# Indicator Settings
+indicators:
+  # Moving Averages
+  moving_averages:
+    enabled: true
+    periods: [10, 20, 50, 100, 200]
+    types: ["SMA", "EMA"]  # SMA, EMA, WMA
+    
+  # Momentum Indicators
+  momentum:
+    enabled: true
+    rsi:
+      enabled: true
+      period: 14
+    macd:
+      enabled: true
+      fast: 12
+      slow: 26
+      signal: 9
+    stochastic:
+      enabled: false
+      k_period: 14
+      d_period: 3
+      
+  # Volatility Indicators
+  volatility:
+    enabled: true
+    bollinger_bands:
+      enabled: true
+      period: 20
+      std_dev: 2.0
+    atr:
+      enabled: true
+      period: 14
+      
+  # Volume Indicators
+  volume:
+    enabled: true
+    volume_sma:
+      enabled: true
+      period: 20
+    obv:
+      enabled: false
+
+# Feature Engineering Configuration
+features:
+  version: "v1.0"
+  
+  # Feature groups
+  groups:
+    price_features:
+      enabled: true
+      include: ["returns", "log_returns", "high_low_ratio", "open_close_ratio"]
+      
+    technical_features:
+      enabled: true
+      include: ["rsi", "macd", "bollinger_position", "atr_normalized"]
+      
+    lag_features:
+      enabled: true
+      lags: [1, 2, 3, 5, 10]  # Number of periods to lag
+      
+    rolling_features:
+      enabled: true
+      windows: [5, 10, 20, 50]  # Rolling window sizes
+      functions: ["mean", "std", "min", "max", "skew", "kurtosis"]
+      
+    time_features:
+      enabled: true
+      include: ["hour", "day_of_week", "month", "is_weekend"]
+
+# Machine Learning Configuration (Simplified for FX)
+ml:
+  # LSTM Model Settings
+  algorithm: "LSTM"
+  hidden_layers: [128, 64, 32]
+  dropout: 0.2
+  learning_rate: 0.001
+  epochs: 100
+  early_stopping:
+    enabled: true
+    patience: 10
+    monitor: "val_loss"
+  
+  # Training configuration
+  training:
+    train_split: 0.7  # 70% for training
+    val_split: 0.15   # 15% for validation
+    test_split: 0.15  # 15% for testing
+    shuffle: true
+    random_seed: 42
+  
+  # Feature scaling
+  scaling:
+    method: "standard"  # standard, minmax, robust, none
+    fit_on_train_only: true
+  
+  # Regime detection
+  regime:
+    n_regimes: 3  # Number of market regimes to detect
+    min_regime_duration: 10  # Minimum bars in a regime
+    transition_threshold: 0.5
+
+# Data Storage Configuration
+storage:
+  database:
+    type: "sqlite"  # sqlite, postgresql, mysql
+    path: "database/quant_data.db"
+    
+  data_paths:
+    raw: "data/raw"
+    raw_clock: "data/raw/clock"
+    raw_intrinsic: "data/raw/intrinsic"
+    features: "data/features"
+    processed: "data/processed"
+    models: "outputs/models"
+    plots: "outputs/plots"
+    reports: "outputs/reports"
+    
+  # File formats
+  formats:
+    raw_data: "parquet"  # parquet, csv, hdf5
+    features: "parquet"
+    models: "pkl"  # pkl, joblib, h5
+
+# Logging Configuration
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: "outputs/logs/bot.log"
+  console: true
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+
+# Intrinsic Time Configuration
+intrinsic_time:
+  # Directional-change thresholds (as decimal fractions)
+  # These represent the minimum price movement required to trigger a DC event
+  thresholds:
+    - 0.0005  # 5 pips (ultra_short)
+    - 0.0010  # 10 pips (short)
+    - 0.0020  # 20 pips (intraday)
+    - 0.0050  # 50 pips (swing)
+    - 0.0100  # 100 pips (macro_shift)
+
+# Backtesting Configuration (for future use)
+backtesting:
+  enabled: false
+  start_date: "2020-01-01"
+  end_date: "2024-01-01"
+  initial_capital: 100000
+  commission: 0.001  # 0.1% per trade
+

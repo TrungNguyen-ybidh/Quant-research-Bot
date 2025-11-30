@@ -1,0 +1,418 @@
+{
+  "AUDJPY_dc005": {
+    "threshold": 0.0005,
+    "events": 574,
+    "last_update": "2025-11-30 14:26:11",
+    "dc_start": "2025-11-17 22:47:00",
+    "dc_end": "2025-11-26 18:13:00",
+    "source_clock_file": "AUDJPY_1m.parquet"
+  },
+  "AUDJPY_dc010": {
+    "threshold": 0.001,
+    "events": 211,
+    "last_update": "2025-11-30 14:26:11",
+    "dc_start": "2025-11-17 23:04:00",
+    "dc_end": "2025-11-26 14:45:00",
+    "source_clock_file": "AUDJPY_1m.parquet"
+  },
+  "AUDJPY_dc020": {
+    "threshold": 0.002,
+    "events": 52,
+    "last_update": "2025-11-30 14:26:11",
+    "dc_start": "2025-11-18 03:50:00",
+    "dc_end": "2025-11-26 08:36:00",
+    "source_clock_file": "AUDJPY_1m.parquet"
+  },
+  "AUDJPY_dc050": {
+    "threshold": 0.005,
+    "events": 14,
+    "last_update": "2025-11-30 14:26:12",
+    "dc_start": "2025-11-18 04:17:00",
+    "dc_end": "2025-11-25 08:50:00",
+    "source_clock_file": "AUDJPY_1m.parquet"
+  },
+  "AUDJPY_dc100": {
+    "threshold": 0.01,
+    "events": 5,
+    "last_update": "2025-11-30 14:26:12",
+    "dc_start": "2025-11-19 21:34:00",
+    "dc_end": "2025-11-25 14:46:00",
+    "source_clock_file": "AUDJPY_1m.parquet"
+  },
+  "AUDUSD_dc005": {
+    "threshold": 0.0005,
+    "events": 374,
+    "last_update": "2025-11-30 14:26:12",
+    "dc_start": "2025-11-17 22:47:00",
+    "dc_end": "2025-11-26 20:14:00",
+    "source_clock_file": "AUDUSD_1m.parquet"
+  },
+  "AUDUSD_dc010": {
+    "threshold": 0.001,
+    "events": 136,
+    "last_update": "2025-11-30 14:26:13",
+    "dc_start": "2025-11-18 00:36:00",
+    "dc_end": "2025-11-26 15:00:00",
+    "source_clock_file": "AUDUSD_1m.parquet"
+  },
+  "AUDUSD_dc020": {
+    "threshold": 0.002,
+    "events": 48,
+    "last_update": "2025-11-30 14:26:13",
+    "dc_start": "2025-11-18 03:51:00",
+    "dc_end": "2025-11-26 13:36:00",
+    "source_clock_file": "AUDUSD_1m.parquet"
+  },
+  "AUDUSD_dc050": {
+    "threshold": 0.005,
+    "events": 4,
+    "last_update": "2025-11-30 14:26:13",
+    "dc_start": "2025-11-19 16:37:00",
+    "dc_end": "2025-11-20 16:14:00",
+    "source_clock_file": "AUDUSD_1m.parquet"
+  },
+  "AUDUSD_dc100": {
+    "threshold": 0.01,
+    "events": 2,
+    "last_update": "2025-11-30 14:26:14",
+    "dc_start": "2025-11-21 10:08:00",
+    "dc_end": "2025-11-21 10:08:00",
+    "source_clock_file": "AUDUSD_1m.parquet"
+  },
+  "CHFJPY_dc005": {
+    "threshold": 0.0005,
+    "events": 289,
+    "last_update": "2025-11-30 14:26:14",
+    "dc_start": "2025-11-18 00:14:00",
+    "dc_end": "2025-11-26 15:54:00",
+    "source_clock_file": "CHFJPY_1m.parquet"
+  },
+  "CHFJPY_dc010": {
+    "threshold": 0.001,
+    "events": 89,
+    "last_update": "2025-11-30 14:26:14",
+    "dc_start": "2025-11-18 06:03:00",
+    "dc_end": "2025-11-26 12:53:00",
+    "source_clock_file": "CHFJPY_1m.parquet"
+  },
+  "CHFJPY_dc020": {
+    "threshold": 0.002,
+    "events": 20,
+    "last_update": "2025-11-30 14:26:15",
+    "dc_start": "2025-11-18 15:38:00",
+    "dc_end": "2025-11-26 13:45:00",
+    "source_clock_file": "CHFJPY_1m.parquet"
+  },
+  "CHFJPY_dc050": {
+    "threshold": 0.005,
+    "events": 6,
+    "last_update": "2025-11-30 14:26:15",
+    "dc_start": "2025-11-19 03:14:00",
+    "dc_end": "2025-11-25 07:16:00",
+    "source_clock_file": "CHFJPY_1m.parquet"
+  },
+  "CHFJPY_dc100": {
+    "threshold": 0.01,
+    "events": 1,
+    "last_update": "2025-11-30 14:26:15",
+    "dc_start": "2025-11-25 09:43:00",
+    "dc_end": "2025-11-25 09:43:00",
+    "source_clock_file": "CHFJPY_1m.parquet"
+  },
+  "EURJPY_dc005": {
+    "threshold": 0.0005,
+    "events": 277,
+    "last_update": "2025-11-30 14:26:16",
+    "dc_start": "2025-11-18 04:10:00",
+    "dc_end": "2025-11-26 17:24:00",
+    "source_clock_file": "EURJPY_1m.parquet"
+  },
+  "EURJPY_dc010": {
+    "threshold": 0.001,
+    "events": 80,
+    "last_update": "2025-11-30 14:26:16",
+    "dc_start": "2025-11-18 04:15:00",
+    "dc_end": "2025-11-26 16:59:00",
+    "source_clock_file": "EURJPY_1m.parquet"
+  },
+  "EURJPY_dc020": {
+    "threshold": 0.002,
+    "events": 19,
+    "last_update": "2025-11-30 14:26:16",
+    "dc_start": "2025-11-19 09:41:00",
+    "dc_end": "2025-11-26 01:38:00",
+    "source_clock_file": "EURJPY_1m.parquet"
+  },
+  "EURJPY_dc050": {
+    "threshold": 0.005,
+    "events": 5,
+    "last_update": "2025-11-30 14:26:16",
+    "dc_start": "2025-11-19 11:02:00",
+    "dc_end": "2025-11-25 09:02:00",
+    "source_clock_file": "EURJPY_1m.parquet"
+  },
+  "EURJPY_dc100": {
+    "threshold": 0.01,
+    "events": 2,
+    "last_update": "2025-11-30 14:26:17",
+    "dc_start": "2025-11-20 13:50:00",
+    "dc_end": "2025-11-20 13:50:00",
+    "source_clock_file": "EURJPY_1m.parquet"
+  },
+  "EURUSD_dc005": {
+    "threshold": 0.0005,
+    "events": 199,
+    "last_update": "2025-11-30 14:26:17",
+    "dc_start": "2025-11-18 04:21:00",
+    "dc_end": "2025-11-26 18:34:00",
+    "source_clock_file": "EURUSD_1m.parquet"
+  },
+  "EURUSD_dc010": {
+    "threshold": 0.001,
+    "events": 63,
+    "last_update": "2025-11-30 14:26:17",
+    "dc_start": "2025-11-18 04:26:00",
+    "dc_end": "2025-11-26 17:00:00",
+    "source_clock_file": "EURUSD_1m.parquet"
+  },
+  "EURUSD_dc020": {
+    "threshold": 0.002,
+    "events": 18,
+    "last_update": "2025-11-30 14:26:18",
+    "dc_start": "2025-11-19 09:48:00",
+    "dc_end": "2025-11-26 08:34:00",
+    "source_clock_file": "EURUSD_1m.parquet"
+  },
+  "EURUSD_dc050": {
+    "threshold": 0.005,
+    "events": 2,
+    "last_update": "2025-11-30 14:26:18",
+    "dc_start": "2025-11-19 17:22:00",
+    "dc_end": "2025-11-19 17:22:00",
+    "source_clock_file": "EURUSD_1m.parquet"
+  },
+  "GBPJPY_dc005": {
+    "threshold": 0.0005,
+    "events": 361,
+    "last_update": "2025-11-30 14:26:19",
+    "dc_start": "2025-11-17 23:00:00",
+    "dc_end": "2025-11-26 18:08:00",
+    "source_clock_file": "GBPJPY_1m.parquet"
+  },
+  "GBPJPY_dc010": {
+    "threshold": 0.001,
+    "events": 118,
+    "last_update": "2025-11-30 14:26:19",
+    "dc_start": "2025-11-18 03:57:00",
+    "dc_end": "2025-11-26 16:36:00",
+    "source_clock_file": "GBPJPY_1m.parquet"
+  },
+  "GBPJPY_dc020": {
+    "threshold": 0.002,
+    "events": 36,
+    "last_update": "2025-11-30 14:26:19",
+    "dc_start": "2025-11-18 04:17:00",
+    "dc_end": "2025-11-26 12:08:00",
+    "source_clock_file": "GBPJPY_1m.parquet"
+  },
+  "GBPJPY_dc050": {
+    "threshold": 0.005,
+    "events": 3,
+    "last_update": "2025-11-30 14:26:20",
+    "dc_start": "2025-11-19 14:59:00",
+    "dc_end": "2025-11-20 17:11:00",
+    "source_clock_file": "GBPJPY_1m.parquet"
+  },
+  "GBPJPY_dc100": {
+    "threshold": 0.01,
+    "events": 3,
+    "last_update": "2025-11-30 14:26:20",
+    "dc_start": "2025-11-20 13:49:00",
+    "dc_end": "2025-11-21 09:57:00",
+    "source_clock_file": "GBPJPY_1m.parquet"
+  },
+  "GBPUSD_dc005": {
+    "threshold": 0.0005,
+    "events": 269,
+    "last_update": "2025-11-30 14:26:20",
+    "dc_start": "2025-11-18 00:01:00",
+    "dc_end": "2025-11-26 18:55:00",
+    "source_clock_file": "GBPUSD_1m.parquet"
+  },
+  "GBPUSD_dc010": {
+    "threshold": 0.001,
+    "events": 98,
+    "last_update": "2025-11-30 14:26:21",
+    "dc_start": "2025-11-18 04:07:00",
+    "dc_end": "2025-11-26 16:52:00",
+    "source_clock_file": "GBPUSD_1m.parquet"
+  },
+  "GBPUSD_dc020": {
+    "threshold": 0.002,
+    "events": 22,
+    "last_update": "2025-11-30 14:26:21",
+    "dc_start": "2025-11-19 01:56:00",
+    "dc_end": "2025-11-26 13:35:00",
+    "source_clock_file": "GBPUSD_1m.parquet"
+  },
+  "GBPUSD_dc050": {
+    "threshold": 0.005,
+    "events": 6,
+    "last_update": "2025-11-30 14:26:21",
+    "dc_start": "2025-11-19 15:35:00",
+    "dc_end": "2025-11-26 12:08:00",
+    "source_clock_file": "GBPUSD_1m.parquet"
+  },
+  "NZDUSD_dc005": {
+    "threshold": 0.0005,
+    "events": 385,
+    "last_update": "2025-11-30 14:26:22",
+    "dc_start": "2025-11-18 18:58:00",
+    "dc_end": "2025-11-26 20:14:00",
+    "source_clock_file": "NZDUSD_1m.parquet"
+  },
+  "NZDUSD_dc010": {
+    "threshold": 0.001,
+    "events": 138,
+    "last_update": "2025-11-30 14:26:22",
+    "dc_start": "2025-11-18 20:49:00",
+    "dc_end": "2025-11-26 13:30:00",
+    "source_clock_file": "NZDUSD_1m.parquet"
+  },
+  "NZDUSD_dc020": {
+    "threshold": 0.002,
+    "events": 42,
+    "last_update": "2025-11-30 14:26:23",
+    "dc_start": "2025-11-18 21:28:00",
+    "dc_end": "2025-11-26 13:36:00",
+    "source_clock_file": "NZDUSD_1m.parquet"
+  },
+  "NZDUSD_dc050": {
+    "threshold": 0.005,
+    "events": 8,
+    "last_update": "2025-11-30 14:26:23",
+    "dc_start": "2025-11-19 01:53:00",
+    "dc_end": "2025-11-26 11:29:00",
+    "source_clock_file": "NZDUSD_1m.parquet"
+  },
+  "NZDUSD_dc100": {
+    "threshold": 0.01,
+    "events": 2,
+    "last_update": "2025-11-30 14:26:23",
+    "dc_start": "2025-11-19 15:30:00",
+    "dc_end": "2025-11-19 15:30:00",
+    "source_clock_file": "NZDUSD_1m.parquet"
+  },
+  "USDCAD_dc005": {
+    "threshold": 0.0005,
+    "events": 111,
+    "last_update": "2025-11-30 14:26:24",
+    "dc_start": "2025-11-18 04:08:00",
+    "dc_end": "2025-11-26 14:31:00",
+    "source_clock_file": "USDCAD_1m.parquet"
+  },
+  "USDCAD_dc010": {
+    "threshold": 0.001,
+    "events": 39,
+    "last_update": "2025-11-30 14:26:24",
+    "dc_start": "2025-11-18 09:45:00",
+    "dc_end": "2025-11-26 13:37:00",
+    "source_clock_file": "USDCAD_1m.parquet"
+  },
+  "USDCAD_dc020": {
+    "threshold": 0.002,
+    "events": 9,
+    "last_update": "2025-11-30 14:26:24",
+    "dc_start": "2025-11-18 13:00:00",
+    "dc_end": "2025-11-26 12:36:00",
+    "source_clock_file": "USDCAD_1m.parquet"
+  },
+  "USDCAD_dc050": {
+    "threshold": 0.005,
+    "events": 3,
+    "last_update": "2025-11-30 14:26:25",
+    "dc_start": "2025-11-18 17:54:00",
+    "dc_end": "2025-11-19 16:05:00",
+    "source_clock_file": "USDCAD_1m.parquet"
+  },
+  "USDCHF_dc005": {
+    "threshold": 0.0005,
+    "events": 305,
+    "last_update": "2025-11-30 14:26:25",
+    "dc_start": "2025-11-17 23:57:00",
+    "dc_end": "2025-11-26 20:08:00",
+    "source_clock_file": "USDCHF_1m.parquet"
+  },
+  "USDCHF_dc010": {
+    "threshold": 0.001,
+    "events": 83,
+    "last_update": "2025-11-30 14:26:26",
+    "dc_start": "2025-11-18 04:18:00",
+    "dc_end": "2025-11-26 15:34:00",
+    "source_clock_file": "USDCHF_1m.parquet"
+  },
+  "USDCHF_dc020": {
+    "threshold": 0.002,
+    "events": 27,
+    "last_update": "2025-11-30 14:26:26",
+    "dc_start": "2025-11-18 04:22:00",
+    "dc_end": "2025-11-26 07:41:00",
+    "source_clock_file": "USDCHF_1m.parquet"
+  },
+  "USDCHF_dc050": {
+    "threshold": 0.005,
+    "events": 4,
+    "last_update": "2025-11-30 14:26:27",
+    "dc_start": "2025-11-18 16:43:00",
+    "dc_end": "2025-11-21 14:25:00",
+    "source_clock_file": "USDCHF_1m.parquet"
+  },
+  "USDCHF_dc100": {
+    "threshold": 0.01,
+    "events": 1,
+    "last_update": "2025-11-30 14:26:27",
+    "dc_start": "2025-11-19 15:01:00",
+    "dc_end": "2025-11-19 15:01:00",
+    "source_clock_file": "USDCHF_1m.parquet"
+  },
+  "USDJPY_dc005": {
+    "threshold": 0.0005,
+    "events": 354,
+    "last_update": "2025-11-30 14:26:27",
+    "dc_start": "2025-11-18 00:02:00",
+    "dc_end": "2025-11-26 18:27:00",
+    "source_clock_file": "USDJPY_1m.parquet"
+  },
+  "USDJPY_dc010": {
+    "threshold": 0.001,
+    "events": 120,
+    "last_update": "2025-11-30 14:26:28",
+    "dc_start": "2025-11-18 04:16:00",
+    "dc_end": "2025-11-26 14:45:00",
+    "source_clock_file": "USDJPY_1m.parquet"
+  },
+  "USDJPY_dc020": {
+    "threshold": 0.002,
+    "events": 35,
+    "last_update": "2025-11-30 14:26:28",
+    "dc_start": "2025-11-18 04:21:00",
+    "dc_end": "2025-11-26 04:06:00",
+    "source_clock_file": "USDJPY_1m.parquet"
+  },
+  "USDJPY_dc050": {
+    "threshold": 0.005,
+    "events": 5,
+    "last_update": "2025-11-30 14:26:28",
+    "dc_start": "2025-11-19 10:32:00",
+    "dc_end": "2025-11-25 09:02:00",
+    "source_clock_file": "USDJPY_1m.parquet"
+  },
+  "USDJPY_dc100": {
+    "threshold": 0.01,
+    "events": 2,
+    "last_update": "2025-11-30 14:26:29",
+    "dc_start": "2025-11-19 17:21:00",
+    "dc_end": "2025-11-19 17:21:00",
+    "source_clock_file": "USDJPY_1m.parquet"
+  }
+}

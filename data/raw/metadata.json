@@ -1,0 +1,442 @@
+{
+  "AUDJPY_15m": {
+    "rows": 8549,
+    "last_update": "2025-11-26 17:53:43",
+    "last_timestamp": "2025-11-26 21:30:00",
+    "source": "IBKR",
+    "timeframe": "15m",
+    "symbol": "AUDJPY"
+  },
+  "AUDJPY_1d": {
+    "rows": 2592,
+    "last_update": "2025-11-26 17:53:43",
+    "last_timestamp": "2025-11-26 05:00:00",
+    "source": "IBKR",
+    "timeframe": "1d",
+    "symbol": "AUDJPY"
+  },
+  "AUDJPY_1h": {
+    "rows": 8753,
+    "last_update": "2025-11-26 17:53:43",
+    "last_timestamp": "2025-11-26 21:00:00",
+    "source": "IBKR",
+    "timeframe": "1h",
+    "symbol": "AUDJPY"
+  },
+  "AUDJPY_1m": {
+    "rows": 9946,
+    "last_update": "2025-11-26 17:53:43",
+    "last_timestamp": "2025-11-26 21:30:00",
+    "source": "IBKR",
+    "timeframe": "1m",
+    "symbol": "AUDJPY"
+  },
+  "AUDJPY_5m": {
+    "rows": 8545,
+    "last_update": "2025-11-26 17:53:43",
+    "last_timestamp": "2025-11-26 21:30:00",
+    "source": "IBKR",
+    "timeframe": "5m",
+    "symbol": "AUDJPY"
+  },
+  "AUDUSD_15m": {
+    "rows": 8547,
+    "last_update": "2025-11-30 14:38:37",
+    "last_timestamp": "2025-11-26 21:00:00",
+    "source": "IBKR",
+    "timeframe": "15m",
+    "symbol": "AUDUSD"
+  },
+  "AUDUSD_1d": {
+    "rows": 2592,
+    "last_update": "2025-11-30 14:38:45",
+    "last_timestamp": "2025-11-26 05:00:00",
+    "source": "IBKR",
+    "timeframe": "1d",
+    "symbol": "AUDUSD"
+  },
+  "AUDUSD_1h": {
+    "rows": 8753,
+    "last_update": "2025-11-30 14:38:41",
+    "last_timestamp": "2025-11-26 21:00:00",
+    "source": "IBKR",
+    "timeframe": "1h",
+    "symbol": "AUDUSD"
+  },
+  "AUDUSD_1m": {
+    "rows": 9930,
+    "last_update": "2025-11-30 14:38:30",
+    "last_timestamp": "2025-11-26 21:14:00",
+    "source": "IBKR",
+    "timeframe": "1m",
+    "symbol": "AUDUSD"
+  },
+  "AUDUSD_5m": {
+    "rows": 8541,
+    "last_update": "2025-11-30 14:38:34",
+    "last_timestamp": "2025-11-26 21:10:00",
+    "source": "IBKR",
+    "timeframe": "5m",
+    "symbol": "AUDUSD"
+  },
+  "CHFJPY_15m": {
+    "rows": 8549,
+    "last_update": "2025-11-26 17:53:43",
+    "last_timestamp": "2025-11-26 21:30:00",
+    "source": "IBKR",
+    "timeframe": "15m",
+    "symbol": "CHFJPY"
+  },
+  "CHFJPY_1d": {
+    "rows": 2592,
+    "last_update": "2025-11-26 17:53:43",
+    "last_timestamp": "2025-11-26 05:00:00",
+    "source": "IBKR",
+    "timeframe": "1d",
+    "symbol": "CHFJPY"
+  },
+  "CHFJPY_1h": {
+    "rows": 8753,
+    "last_update": "2025-11-26 17:53:43",
+    "last_timestamp": "2025-11-26 21:00:00",
+    "source": "IBKR",
+    "timeframe": "1h",
+    "symbol": "CHFJPY"
+  },
+  "CHFJPY_1m": {
+    "rows": 9948,
+    "last_update": "2025-11-26 17:53:43",
+    "last_timestamp": "2025-11-26 21:32:00",
+    "source": "IBKR",
+    "timeframe": "1m",
+    "symbol": "CHFJPY"
+  },
+  "CHFJPY_5m": {
+    "rows": 8545,
+    "last_update": "2025-11-26 17:53:43",
+    "last_timestamp": "2025-11-26 21:30:00",
+    "source": "IBKR",
+    "timeframe": "5m",
+    "symbol": "CHFJPY"
+  },
+  "EURJPY_15m": {
+    "rows": 8548,
+    "last_update": "2025-11-26 17:53:43",
+    "last_timestamp": "2025-11-26 21:15:00",
+    "source": "IBKR",
+    "timeframe": "15m",
+    "symbol": "EURJPY"
+  },
+  "EURJPY_1d": {
+    "rows": 2592,
+    "last_update": "2025-11-26 17:53:43",
+    "last_timestamp": "2025-11-26 05:00:00",
+    "source": "IBKR",
+    "timeframe": "1d",
+    "symbol": "EURJPY"
+  },
+  "EURJPY_1h": {
+    "rows": 8753,
+    "last_update": "2025-11-26 17:53:43",
+    "last_timestamp": "2025-11-26 21:00:00",
+    "source": "IBKR",
+    "timeframe": "1h",
+    "symbol": "EURJPY"
+  },
+  "EURJPY_1m": {
+    "rows": 9943,
+    "last_update": "2025-11-26 17:53:43",
+    "last_timestamp": "2025-11-26 21:27:00",
+    "source": "IBKR",
+    "timeframe": "1m",
+    "symbol": "EURJPY"
+  },
+  "EURJPY_5m": {
+    "rows": 8544,
+    "last_update": "2025-11-26 17:53:43",
+    "last_timestamp": "2025-11-26 21:25:00",
+    "source": "IBKR",
+    "timeframe": "5m",
+    "symbol": "EURJPY"
+  },
+  "EURUSD_15m": {
+    "rows": 8546,
+    "last_update": "2025-11-30 14:37:23",
+    "last_timestamp": "2025-11-26 20:45:00",
+    "source": "IBKR",
+    "timeframe": "15m",
+    "symbol": "EURUSD"
+  },
+  "EURUSD_1d": {
+    "rows": 2592,
+    "last_update": "2025-11-30 14:37:30",
+    "last_timestamp": "2025-11-26 05:00:00",
+    "source": "IBKR",
+    "timeframe": "1d",
+    "symbol": "EURUSD"
+  },
+  "EURUSD_1h": {
+    "rows": 8752,
+    "last_update": "2025-11-30 14:37:27",
+    "last_timestamp": "2025-11-26 20:00:00",
+    "source": "IBKR",
+    "timeframe": "1h",
+    "symbol": "EURUSD"
+  },
+  "EURUSD_1m": {
+    "rows": 9914,
+    "last_update": "2025-11-30 14:37:15",
+    "last_timestamp": "2025-11-26 20:58:00",
+    "source": "IBKR",
+    "timeframe": "1m",
+    "symbol": "EURUSD"
+  },
+  "EURUSD_5m": {
+    "rows": 8538,
+    "last_update": "2025-11-30 14:37:19",
+    "last_timestamp": "2025-11-26 20:55:00",
+    "source": "IBKR",
+    "timeframe": "5m",
+    "symbol": "EURUSD"
+  },
+  "GBPJPY_15m": {
+    "rows": 8548,
+    "last_update": "2025-11-26 17:53:43",
+    "last_timestamp": "2025-11-26 21:15:00",
+    "source": "IBKR",
+    "timeframe": "15m",
+    "symbol": "GBPJPY"
+  },
+  "GBPJPY_1d": {
+    "rows": 2592,
+    "last_update": "2025-11-26 17:53:43",
+    "last_timestamp": "2025-11-26 05:00:00",
+    "source": "IBKR",
+    "timeframe": "1d",
+    "symbol": "GBPJPY"
+  },
+  "GBPJPY_1h": {
+    "rows": 8753,
+    "last_update": "2025-11-26 17:53:43",
+    "last_timestamp": "2025-11-26 21:00:00",
+    "source": "IBKR",
+    "timeframe": "1h",
+    "symbol": "GBPJPY"
+  },
+  "GBPJPY_1m": {
+    "rows": 9944,
+    "last_update": "2025-11-26 17:53:43",
+    "last_timestamp": "2025-11-26 21:28:00",
+    "source": "IBKR",
+    "timeframe": "1m",
+    "symbol": "GBPJPY"
+  },
+  "GBPJPY_5m": {
+    "rows": 8544,
+    "last_update": "2025-11-26 17:53:43",
+    "last_timestamp": "2025-11-26 21:25:00",
+    "source": "IBKR",
+    "timeframe": "5m",
+    "symbol": "GBPJPY"
+  },
+  "GBPUSD_15m": {
+    "rows": 8547,
+    "last_update": "2025-11-30 14:37:42",
+    "last_timestamp": "2025-11-26 21:00:00",
+    "source": "IBKR",
+    "timeframe": "15m",
+    "symbol": "GBPUSD"
+  },
+  "GBPUSD_1d": {
+    "rows": 2592,
+    "last_update": "2025-11-30 14:37:49",
+    "last_timestamp": "2025-11-26 05:00:00",
+    "source": "IBKR",
+    "timeframe": "1d",
+    "symbol": "GBPUSD"
+  },
+  "GBPUSD_1h": {
+    "rows": 8753,
+    "last_update": "2025-11-30 14:37:45",
+    "last_timestamp": "2025-11-26 21:00:00",
+    "source": "IBKR",
+    "timeframe": "1h",
+    "symbol": "GBPUSD"
+  },
+  "GBPUSD_1m": {
+    "rows": 9919,
+    "last_update": "2025-11-30 14:37:34",
+    "last_timestamp": "2025-11-26 21:03:00",
+    "source": "IBKR",
+    "timeframe": "1m",
+    "symbol": "GBPUSD"
+  },
+  "GBPUSD_5m": {
+    "rows": 8539,
+    "last_update": "2025-11-30 14:37:38",
+    "last_timestamp": "2025-11-26 21:00:00",
+    "source": "IBKR",
+    "timeframe": "5m",
+    "symbol": "GBPUSD"
+  },
+  "NZDUSD_15m": {
+    "rows": 8460,
+    "last_update": "2025-11-30 14:38:56",
+    "last_timestamp": "2025-11-26 21:15:00",
+    "source": "IBKR",
+    "timeframe": "15m",
+    "symbol": "NZDUSD"
+  },
+  "NZDUSD_1d": {
+    "rows": 2592,
+    "last_update": "2025-11-30 14:39:03",
+    "last_timestamp": "2025-11-27 05:00:00",
+    "source": "IBKR",
+    "timeframe": "1d",
+    "symbol": "NZDUSD"
+  },
+  "NZDUSD_1h": {
+    "rows": 8723,
+    "last_update": "2025-11-30 14:38:59",
+    "last_timestamp": "2025-11-26 21:00:00",
+    "source": "IBKR",
+    "timeframe": "1h",
+    "symbol": "NZDUSD"
+  },
+  "NZDUSD_1m": {
+    "rows": 8732,
+    "last_update": "2025-11-30 14:38:48",
+    "last_timestamp": "2025-11-26 21:16:00",
+    "source": "IBKR",
+    "timeframe": "1m",
+    "symbol": "NZDUSD"
+  },
+  "NZDUSD_5m": {
+    "rows": 8290,
+    "last_update": "2025-11-30 14:38:52",
+    "last_timestamp": "2025-11-26 21:15:00",
+    "source": "IBKR",
+    "timeframe": "5m",
+    "symbol": "NZDUSD"
+  },
+  "USDCAD_15m": {
+    "rows": 8548,
+    "last_update": "2025-11-30 14:39:14",
+    "last_timestamp": "2025-11-26 21:15:00",
+    "source": "IBKR",
+    "timeframe": "15m",
+    "symbol": "USDCAD"
+  },
+  "USDCAD_1d": {
+    "rows": 2592,
+    "last_update": "2025-11-30 14:39:22",
+    "last_timestamp": "2025-11-26 05:00:00",
+    "source": "IBKR",
+    "timeframe": "1d",
+    "symbol": "USDCAD"
+  },
+  "USDCAD_1h": {
+    "rows": 8753,
+    "last_update": "2025-11-30 14:39:18",
+    "last_timestamp": "2025-11-26 21:00:00",
+    "source": "IBKR",
+    "timeframe": "1h",
+    "symbol": "USDCAD"
+  },
+  "USDCAD_1m": {
+    "rows": 9934,
+    "last_update": "2025-11-30 14:39:07",
+    "last_timestamp": "2025-11-26 21:18:00",
+    "source": "IBKR",
+    "timeframe": "1m",
+    "symbol": "USDCAD"
+  },
+  "USDCAD_5m": {
+    "rows": 8542,
+    "last_update": "2025-11-30 14:39:11",
+    "last_timestamp": "2025-11-26 21:15:00",
+    "source": "IBKR",
+    "timeframe": "5m",
+    "symbol": "USDCAD"
+  },
+  "USDCHF_15m": {
+    "rows": 8547,
+    "last_update": "2025-11-30 14:38:19",
+    "last_timestamp": "2025-11-26 21:00:00",
+    "source": "IBKR",
+    "timeframe": "15m",
+    "symbol": "USDCHF"
+  },
+  "USDCHF_1d": {
+    "rows": 2592,
+    "last_update": "2025-11-30 14:38:26",
+    "last_timestamp": "2025-11-26 05:00:00",
+    "source": "IBKR",
+    "timeframe": "1d",
+    "symbol": "USDCHF"
+  },
+  "USDCHF_1h": {
+    "rows": 8753,
+    "last_update": "2025-11-30 14:38:22",
+    "last_timestamp": "2025-11-26 21:00:00",
+    "source": "IBKR",
+    "timeframe": "1h",
+    "symbol": "USDCHF"
+  },
+  "USDCHF_1m": {
+    "rows": 9928,
+    "last_update": "2025-11-30 14:38:11",
+    "last_timestamp": "2025-11-26 21:12:00",
+    "source": "IBKR",
+    "timeframe": "1m",
+    "symbol": "USDCHF"
+  },
+  "USDCHF_5m": {
+    "rows": 8541,
+    "last_update": "2025-11-30 14:38:15",
+    "last_timestamp": "2025-11-26 21:10:00",
+    "source": "IBKR",
+    "timeframe": "5m",
+    "symbol": "USDCHF"
+  },
+  "USDJPY_15m": {
+    "rows": 8547,
+    "last_update": "2025-11-30 14:38:00",
+    "last_timestamp": "2025-11-26 21:00:00",
+    "source": "IBKR",
+    "timeframe": "15m",
+    "symbol": "USDJPY"
+  },
+  "USDJPY_1d": {
+    "rows": 2592,
+    "last_update": "2025-11-30 14:38:07",
+    "last_timestamp": "2025-11-26 05:00:00",
+    "source": "IBKR",
+    "timeframe": "1d",
+    "symbol": "USDJPY"
+  },
+  "USDJPY_1h": {
+    "rows": 8753,
+    "last_update": "2025-11-30 14:38:04",
+    "last_timestamp": "2025-11-26 21:00:00",
+    "source": "IBKR",
+    "timeframe": "1h",
+    "symbol": "USDJPY"
+  },
+  "USDJPY_1m": {
+    "rows": 9922,
+    "last_update": "2025-11-30 14:37:53",
+    "last_timestamp": "2025-11-26 21:06:00",
+    "source": "IBKR",
+    "timeframe": "1m",
+    "symbol": "USDJPY"
+  },
+  "USDJPY_5m": {
+    "rows": 8540,
+    "last_update": "2025-11-30 14:37:56",
+    "last_timestamp": "2025-11-26 21:05:00",
+    "source": "IBKR",
+    "timeframe": "5m",
+    "symbol": "USDJPY"
+  }
+}

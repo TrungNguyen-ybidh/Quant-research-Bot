@@ -1,0 +1,27 @@
+# Trading Symbols Configuration
+# FX pairs organized by groups for easy feature pipelines and regime modeling
+
+fx_pairs:
+  majors:
+    - EURUSD
+    - GBPUSD
+    - USDJPY
+    - USDCHF
+    - AUDUSD
+    - NZDUSD
+    - USDCAD
+
+  gold:
+    - XAUUSD
+
+  yen_crosses:
+    - EURJPY
+    - GBPJPY
+    - AUDJPY
+    - CHFJPY
+
+metadata:
+  default_exchange: "IDEALPRO"
+  sec_type: "CASH"
+  default_bar_size: "1 hour"
+  default_what_to_show: "MIDPOINT"

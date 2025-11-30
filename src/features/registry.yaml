@@ -1,0 +1,388 @@
+# Feature Registry
+# Automatically registers feature functions for the feature engineering pipeline
+# Format: module.function_name -> feature_name
+
+# Schema Version Control
+schema_version: 1.0
+feature_version: 1.0
+
+intrinsic_time:
+  dc_return_x:
+    module: intrinsic_time
+    function: compute_dc_return
+    description: "Directional-change return for threshold x"
+    enabled: true
+    params:
+      delta: 0.0010
+  
+  overshoot_return_x:
+    module: intrinsic_time
+    function: compute_overshoot_return
+    description: "Overshoot return after DC event"
+    enabled: true
+    params:
+      delta: 0.0010
+  
+  overshoot_ratio_x:
+    module: intrinsic_time
+    function: compute_overshoot_ratio
+    description: "Ratio of overshoot return to DC return"
+    enabled: true
+    depends_on:
+      - dc_return_x
+      - overshoot_return_x
+    params:
+      delta: 0.0010
+  
+  event_frequency:
+    module: intrinsic_time
+    function: compute_event_frequency
+    description: "Number of DC events per unit time"
+    enabled: true
+    params:
+      window: 24
+  
+  clustering:
+    module: intrinsic_time
+    function: compute_clustering
+    description: "Temporal clustering of DC events"
+    enabled: true
+    params:
+      window: 10
+  
+  multi_delta_agreement:
+    module: intrinsic_time
+    function: compute_multi_delta_agreement
+    description: "Agreement across multiple delta thresholds"
+    enabled: true
+    params:
+      deltas: [0.0005, 0.0010, 0.0020]
+  
+  intrinsic_trend_strength:
+    module: intrinsic_time
+    function: compute_intrinsic_trend_strength
+    description: "Strength of trend in intrinsic time"
+    enabled: true
+    params:
+      window: 20
+
+volatility:
+  realized_vol_5m:
+    module: volatility
+    function: compute_realized_volatility
+    description: "Realized volatility (5-period window)"
+    enabled: true
+    params:
+      window: 5
+  
+  realized_vol_15m:
+    module: volatility
+    function: compute_realized_volatility
+    description: "Realized volatility (15-period window)"
+    enabled: true
+    params:
+      window: 15
+  
+  realized_vol_60m:
+    module: volatility
+    function: compute_realized_volatility
+    description: "Realized volatility (60-period window)"
+    enabled: true
+    params:
+      window: 60
+  
+  bipower_variation:
+    module: volatility
+    function: compute_bipower_variation
+    description: "Bipower variation (jump-robust volatility)"
+    enabled: true
+    params:
+      window: 20
+  
+  jump_component:
+    module: volatility
+    function: compute_jump_component
+    description: "Jump component of volatility"
+    enabled: true
+    depends_on:
+      - realized_vol_15m
+      - bipower_variation
+    params:
+      window: 20
+  
+  volatility_of_vol:
+    module: volatility
+    function: compute_volatility_of_volatility
+    description: "Volatility of volatility"
+    enabled: true
+    depends_on:
+      - realized_vol_15m
+    params:
+      window: 20
+      vol_window: 10
+  
+  parkinson_volatility:
+    module: volatility
+    function: compute_parkinson_volatility
+    description: "Parkinson volatility estimator"
+    enabled: true
+    params:
+      window: 20
+  
+  skew:
+    module: volatility
+    function: compute_skew
+    description: "Return skewness"
+    enabled: true
+    params:
+      window: 20
+  
+  kurtosis:
+    module: volatility
+    function: compute_kurtosis
+    description: "Return kurtosis"
+    enabled: true
+    params:
+      window: 20
+  
+  variance_ratio:
+    module: volatility
+    function: compute_variance_ratio
+    description: "Variance ratio test statistic"
+    enabled: true
+    params:
+      short_window: 5
+      long_window: 20
+  
+  hurst_exponent:
+    module: volatility
+    function: compute_hurst_exponent
+    description: "Hurst exponent (long memory)"
+    enabled: true
+    params:
+      window: 100
+
+microstructure:
+  micro_price:
+    module: microstructure
+    function: compute_micro_price
+    description: "Microstructure price (bid-ask weighted)"
+    enabled: true
+    params: {}
+  
+  synthetic_spread:
+    module: microstructure
+    function: compute_synthetic_spread
+    description: "Synthetic bid-ask spread"
+    enabled: true
+    params:
+      window: 20
+  
+  relative_spread:
+    module: microstructure
+    function: compute_relative_spread
+    description: "Relative spread (spread / mid price)"
+    enabled: true
+    params: {}
+  
+  wick_ratio:
+    module: microstructure
+    function: compute_wick_ratio
+    description: "Upper wick to lower wick ratio"
+    enabled: true
+    params: {}
+  
+  body_ratio:
+    module: microstructure
+    function: compute_body_ratio
+    description: "Body size to total range ratio"
+    enabled: true
+    params: {}
+  
+  rejection_wicks:
+    module: microstructure
+    function: compute_rejection_wicks
+    description: "Rejection wick indicator"
+    enabled: true
+    params:
+      threshold: 0.6
+  
+  standardized_range:
+    module: microstructure
+    function: compute_standardized_range
+    description: "Range standardized by volatility"
+    enabled: true
+    params:
+      window: 20
+  
+  volume_adv_ratio:
+    module: microstructure
+    function: compute_volume_adv_ratio
+    description: "Volume to average daily volume ratio"
+    enabled: true
+    params:
+      window: 20
+
+trend:
+  sma_ratio_10_20:
+    module: trend
+    function: compute_sma_ratio
+    description: "SMA(10) / SMA(20) ratio"
+    enabled: true
+    params:
+      short: 10
+      long: 20
+  
+  ema_ratio_12_26:
+    module: trend
+    function: compute_ema_ratio
+    description: "EMA(12) / EMA(26) ratio"
+    enabled: true
+    params:
+      short: 12
+      long: 26
+  
+  adx:
+    module: trend
+    function: compute_adx
+    description: "Average Directional Index"
+    enabled: true
+    params:
+      period: 14
+  
+  trend_strength:
+    module: trend
+    function: compute_trend_strength
+    description: "Trend strength indicator"
+    enabled: true
+    params:
+      window: 20
+  
+  price_position:
+    module: trend
+    function: compute_price_position
+    description: "Price position in recent range"
+    enabled: true
+    params:
+      window: 20
+
+fx_factors:
+  carry_factor:
+    module: fx_factors
+    function: compute_carry_factor
+    description: "Carry trade factor (interest rate differential)"
+    enabled: true
+    params: {}
+  
+  momentum_factor:
+    module: fx_factors
+    function: compute_momentum_factor
+    description: "Momentum factor (past return)"
+    enabled: true
+    params:
+      window: 20
+  
+  value_factor:
+    module: fx_factors
+    function: compute_value_factor
+    description: "Value factor (deviation from mean)"
+    enabled: true
+    params:
+      window: 60
+  
+  volatility_factor:
+    module: fx_factors
+    function: compute_volatility_factor
+    description: "Volatility factor (normalized volatility)"
+    enabled: true
+    params:
+      window: 20
+
+cross_asset:
+  correlation_rolling:
+    module: cross_asset
+    function: compute_correlation_rolling
+    description: "Rolling correlation with other assets"
+    enabled: true
+    params:
+      window: 20
+      reference_asset: "USD"
+  
+  relative_strength:
+    module: cross_asset
+    function: compute_relative_strength
+    description: "Relative strength vs other assets"
+    enabled: true
+    params:
+      window: 20
+      reference_asset: "USD"
+  
+  cross_asset_momentum:
+    module: cross_asset
+    function: compute_cross_asset_momentum
+    description: "Cross-asset momentum signal"
+    enabled: true
+    params:
+      window: 20
+
+session:
+  london_session:
+    module: session
+    function: compute_london_session
+    description: "London session indicator"
+    enabled: true
+    params: {}
+  
+  new_york_session:
+    module: session
+    function: compute_new_york_session
+    description: "New York session indicator"
+    enabled: true
+    params: {}
+  
+  asia_session:
+    module: session
+    function: compute_asia_session
+    description: "Asia session indicator"
+    enabled: true
+    params: {}
+  
+  session_overlap:
+    module: session
+    function: compute_session_overlap
+    description: "Trading session overlap indicator"
+    enabled: true
+    params: {}
+  
+  session_volatility:
+    module: session
+    function: compute_session_volatility
+    description: "Volatility by trading session"
+    enabled: true
+    params:
+      window: 20
+
+liquidity:
+  bid_ask_spread:
+    module: liquidity
+    function: compute_bid_ask_spread
+    description: "Bid-ask spread"
+    enabled: true
+    params: {}
+  
+  spread_percentile:
+    module: liquidity
+    function: compute_spread_percentile
+    description: "Spread percentile in recent distribution"
+    enabled: true
+    params:
+      window: 100
+  
+  liquidity_score:
+    module: liquidity
+    function: compute_liquidity_score
+    description: "Composite liquidity score"
+    enabled: true
+    params:
+      window: 20
+
