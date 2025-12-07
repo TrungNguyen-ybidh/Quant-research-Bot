@@ -12,6 +12,7 @@ from src.features import (
     cross_asset,
     session,
     liquidity,
+    indicators,
     utils
 )
 
@@ -24,6 +25,7 @@ __all__ = [
     'cross_asset',
     'session',
     'liquidity',
+    'indicators',
     'utils'
 ]
 

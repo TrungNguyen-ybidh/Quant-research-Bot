@@ -3,9 +3,12 @@
 # Format: module.function_name -> feature_name
 
 # Schema Version Control
-schema_version: 1.0
-feature_version: 1.0
+schema_version: 2.0
+feature_version: 2.0
 
+# =============================================================================
+# INTRINSIC TIME FEATURES
+# =============================================================================
 intrinsic_time:
   dc_return_x:
     module: intrinsic_time
@@ -66,6 +69,9 @@ intrinsic_time:
     params:
       window: 20
 
+# =============================================================================
+# VOLATILITY FEATURES
+# =============================================================================
 volatility:
   realized_vol_5m:
     module: volatility
@@ -162,6 +168,9 @@ volatility:
     params:
       window: 100
 
+# =============================================================================
+# MICROSTRUCTURE FEATURES
+# =============================================================================
 microstructure:
   micro_price:
     module: microstructure
@@ -223,6 +232,9 @@ microstructure:
     params:
       window: 20
 
+# =============================================================================
+# TREND FEATURES
+# =============================================================================
 trend:
   sma_ratio_10_20:
     module: trend
@@ -266,11 +278,22 @@ trend:
     params:
       window: 20
 
+# =============================================================================
+# FX FACTORS (UPDATED with external data)
+# =============================================================================
 fx_factors:
   carry_factor:
     module: fx_factors
     function: compute_carry_factor
-    description: "Carry trade factor (interest rate differential)"
+    description: "Carry trade factor using real interest rate differentials from FRED"
+    enabled: true
+    params:
+      use_external: true
+  
+  carry_raw:
+    module: fx_factors
+    function: compute_carry_raw
+    description: "Raw interest rate differential (not normalized)"
     enabled: true
     params: {}
   
@@ -297,34 +320,102 @@ fx_factors:
     enabled: true
     params:
       window: 20
-
-cross_asset:
-  correlation_rolling:
-    module: cross_asset
-    function: compute_correlation_rolling
-    description: "Rolling correlation with other assets"
-    enabled: true
-    params:
-      window: 20
-      reference_asset: "USD"
   
-  relative_strength:
+  yield_curve_factor:
+    module: fx_factors
+    function: compute_yield_curve_factor
+    description: "US yield curve spread (10Y - 2Y) from FRED"
+    enabled: true
+    params: {}
+  
+  rate_level_factor:
+    module: fx_factors
+    function: compute_rate_level_factor
+    description: "Absolute interest rate level"
+    enabled: true
+    params:
+      currency: "USD"
+
+# =============================================================================
+# CROSS-ASSET FEATURES (UPDATED with Yahoo Finance data)
+# =============================================================================
+cross_asset:
+  correlation_dxy:
     module: cross_asset
-    function: compute_relative_strength
-    description: "Relative strength vs other assets"
+    function: compute_correlation_dxy
+    description: "Rolling correlation with US Dollar Index"
     enabled: true
     params:
       window: 20
-      reference_asset: "USD"
+  
+  correlation_spx:
+    module: cross_asset
+    function: compute_correlation_spx
+    description: "Rolling correlation with S&P 500"
+    enabled: true
+    params:
+      window: 20
+  
+  correlation_gold:
+    module: cross_asset
+    function: compute_correlation_gold
+    description: "Rolling correlation with Gold"
+    enabled: true
+    params:
+      window: 20
+  
+  correlation_vix:
+    module: cross_asset
+    function: compute_correlation_vix
+    description: "Rolling correlation with VIX"
+    enabled: true
+    params:
+      window: 20
+  
+  correlation_oil:
+    module: cross_asset
+    function: compute_correlation_oil
+    description: "Rolling correlation with Oil"
+    enabled: true
+    params:
+      window: 20
+  
+  relative_strength_vs_dxy:
+    module: cross_asset
+    function: compute_relative_strength_vs_dxy
+    description: "Relative performance vs Dollar Index"
+    enabled: true
+    params:
+      window: 20
   
   cross_asset_momentum:
     module: cross_asset
     function: compute_cross_asset_momentum
-    description: "Cross-asset momentum signal"
+    description: "Aggregated cross-asset momentum signal"
     enabled: true
     params:
       window: 20
+      assets: ["SPX", "GOLD"]
+  
+  risk_sentiment:
+    module: cross_asset
+    function: compute_risk_sentiment
+    description: "Risk sentiment from SPX and VIX"
+    enabled: true
+    params:
+      window: 20
+  
+  correlation_regime:
+    module: cross_asset
+    function: compute_correlation_regime
+    description: "Average correlation level (high vs low correlation environment)"
+    enabled: true
+    params:
+      window: 60
 
+# =============================================================================
+# SESSION FEATURES
+# =============================================================================
 session:
   london_session:
     module: session
@@ -362,6 +453,9 @@ session:
     params:
       window: 20
 
+# =============================================================================
+# LIQUIDITY FEATURES
+# =============================================================================
 liquidity:
   bid_ask_spread:
     module: liquidity
@@ -386,3 +480,215 @@ liquidity:
     params:
       window: 20
 
+# =============================================================================
+# TECHNICAL INDICATORS (NEW)
+# =============================================================================
+indicators:
+  # RSI
+  rsi:
+    module: indicators
+    function: compute_rsi
+    description: "Relative Strength Index (0-100)"
+    enabled: true
+    params:
+      window: 14
+  
+  rsi_normalized:
+    module: indicators
+    function: compute_rsi_normalized
+    description: "Normalized RSI (-1 to 1)"
+    enabled: true
+    params:
+      window: 14
+  
+  # MACD
+  macd:
+    module: indicators
+    function: compute_macd
+    description: "MACD line"
+    enabled: true
+    params:
+      fast_period: 12
+      slow_period: 26
+      signal_period: 9
+  
+  macd_signal:
+    module: indicators
+    function: compute_macd_signal
+    description: "MACD signal line"
+    enabled: true
+    params:
+      fast_period: 12
+      slow_period: 26
+      signal_period: 9
+  
+  macd_histogram:
+    module: indicators
+    function: compute_macd_histogram
+    description: "MACD histogram"
+    enabled: true
+    depends_on:
+      - macd
+      - macd_signal
+    params:
+      fast_period: 12
+      slow_period: 26
+      signal_period: 9
+  
+  # Stochastic
+  stochastic_k:
+    module: indicators
+    function: compute_stochastic_k
+    description: "Stochastic %K"
+    enabled: true
+    params:
+      window: 14
+  
+  stochastic_d:
+    module: indicators
+    function: compute_stochastic_d
+    description: "Stochastic %D"
+    enabled: true
+    depends_on:
+      - stochastic_k
+    params:
+      window: 14
+      smooth: 3
+  
+  stochastic_normalized:
+    module: indicators
+    function: compute_stochastic_normalized
+    description: "Normalized Stochastic (-1 to 1)"
+    enabled: true
+    params:
+      window: 14
+      smooth: 3
+  
+  # CCI
+  cci:
+    module: indicators
+    function: compute_cci
+    description: "Commodity Channel Index"
+    enabled: true
+    params:
+      window: 20
+  
+  cci_normalized:
+    module: indicators
+    function: compute_cci_normalized
+    description: "Normalized CCI (-1 to 1)"
+    enabled: true
+    params:
+      window: 20
+  
+  # Williams %R
+  williams_r:
+    module: indicators
+    function: compute_williams_r
+    description: "Williams %R"
+    enabled: true
+    params:
+      window: 14
+  
+  williams_r_normalized:
+    module: indicators
+    function: compute_williams_r_normalized
+    description: "Normalized Williams %R (-1 to 1)"
+    enabled: true
+    params:
+      window: 14
+  
+  # ROC
+  roc:
+    module: indicators
+    function: compute_roc
+    description: "Rate of Change"
+    enabled: true
+    params:
+      window: 12
+  
+  # ATR
+  atr:
+    module: indicators
+    function: compute_atr
+    description: "Average True Range"
+    enabled: true
+    params:
+      window: 14
+  
+  atr_normalized:
+    module: indicators
+    function: compute_atr_normalized
+    description: "ATR as percentage of price"
+    enabled: true
+    params:
+      window: 14
+  
+  # OBV
+  obv:
+    module: indicators
+    function: compute_obv
+    description: "On-Balance Volume"
+    enabled: true
+    params: {}
+  
+  obv_normalized:
+    module: indicators
+    function: compute_obv_normalized
+    description: "Normalized OBV (z-score)"
+    enabled: true
+    params:
+      window: 20
+  
+  # MFI
+  mfi:
+    module: indicators
+    function: compute_mfi
+    description: "Money Flow Index"
+    enabled: true
+    params:
+      window: 14
+  
+  mfi_normalized:
+    module: indicators
+    function: compute_mfi_normalized
+    description: "Normalized MFI (-1 to 1)"
+    enabled: true
+    params:
+      window: 14
+  
+  # Pivot Points
+  pivot_point:
+    module: indicators
+    function: compute_pivot_point
+    description: "Standard Pivot Point"
+    enabled: true
+    params: {}
+  
+  pivot_distance:
+    module: indicators
+    function: compute_pivot_distance
+    description: "Distance from pivot point"
+    enabled: true
+    depends_on:
+      - pivot_point
+    params: {}
+  
+  # Bollinger
+  bollinger_bandwidth:
+    module: indicators
+    function: compute_bollinger_bandwidth
+    description: "Bollinger Band width"
+    enabled: true
+    params:
+      window: 20
+      num_std: 2.0
+  
+  bollinger_percent_b:
+    module: indicators
+    function: compute_bollinger_percent_b
+    description: "Bollinger %B"
+    enabled: true
+    params:
+      window: 20
+      num_std: 2.0

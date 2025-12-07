@@ -9,6 +9,31 @@ data_source:
   client_id: 10
   timeout: 15  # seconds
 
+# External Data Sources Configuration
+external_data:
+  # FRED API for interest rates
+  fred:
+    enabled: true
+    # API key: Set via FRED_API_KEY environment variable (recommended)
+    # Or uncomment and set directly here (less secure):
+    api_key: "d24b966a5c95b4b3182c261ce74e1224"
+    cache_hours: 24  # How long to cache data before refreshing
+    
+  # Yahoo Finance for cross-asset data
+  yahoo:
+    enabled: true
+    cache_hours: 24
+    # Assets to fetch for cross-asset analysis
+    assets:
+      - DXY      # US Dollar Index
+      - SPX      # S&P 500
+      - VIX      # Volatility Index
+      - GOLD     # Gold Futures
+      - OIL      # WTI Crude Oil
+  
+  # Cache directory for external data
+  cache_dir: "data/external"
+
 # Timeframes Configuration
 # List of timeframes to collect data for
 timeframes:
@@ -33,12 +58,6 @@ historical_request:
     "15 mins": "90 D"    # 90 days for 15-minute bars
     "1 hour": "365 D"    # 1 year for 1-hour bars
     "1 day": "3650 D"    # 10 years for daily bars
-  
-  # Available bar sizes: 1 sec, 5 secs, 10 secs, 15 secs, 30 secs,
-  #                      1 min, 2 mins, 3 mins, 5 mins, 10 mins, 15 mins, 20 mins, 30 mins,
-  #                      1 hour, 2 hours, 3 hours, 4 hours, 8 hours, 1 day, 1 week, 1 month
-  #
-  # Duration format: "N D" (days), "N W" (weeks), "N M" (months), "N Y" (years)
 
 # Indicator Settings
 indicators:
@@ -60,7 +79,7 @@ indicators:
       slow: 26
       signal: 9
     stochastic:
-      enabled: false
+      enabled: true
       k_period: 14
       d_period: 3
       
@@ -82,11 +101,18 @@ indicators:
       enabled: true
       period: 20
     obv:
-      enabled: false
+      enabled: true
 
 # Feature Engineering Configuration
 features:
-  version: "v1.0"
+  version: "v2.0"  # Updated version with external data
+  
+  # External data features
+  external_features:
+    enabled: true
+    carry_factor: true
+    cross_asset_correlations: true
+    yield_curve: true
   
   # Feature groups
   groups:
@@ -129,7 +155,7 @@ ml:
     train_split: 0.7  # 70% for training
     val_split: 0.15   # 15% for validation
     test_split: 0.15  # 15% for testing
-    shuffle: true
+    shuffle: false    # Changed to false for time series
     random_seed: 42
   
   # Feature scaling
@@ -139,9 +165,10 @@ ml:
   
   # Regime detection
   regime:
-    n_regimes: 3  # Number of market regimes to detect
+    n_regimes: 4  # Number of market regimes to detect
     min_regime_duration: 10  # Minimum bars in a regime
     transition_threshold: 0.5
+    labels: ["trending_up", "trending_down", "mean_reverting", "high_volatility"]
 
 # Data Storage Configuration
 storage:
@@ -153,6 +180,7 @@ storage:
     raw: "data/raw"
     raw_clock: "data/raw/clock"
     raw_intrinsic: "data/raw/intrinsic"
+    external: "data/external"  # Added for external data cache
     features: "data/features"
     processed: "data/processed"
     models: "outputs/models"
@@ -191,4 +219,3 @@ backtesting:
   end_date: "2024-01-01"
   initial_capital: 100000
   commission: 0.001  # 0.1% per trade
-

@@ -1,0 +1,255 @@
+{
+  "fred_DFF": {
+    "source": "fred",
+    "key": "DFF",
+    "last_update": "2025-12-06T16:43:33.394939",
+    "rows": 1824,
+    "columns": [
+      "DFF"
+    ],
+    "start_date": "2020-12-07 00:00:00",
+    "end_date": "2025-12-04 00:00:00"
+  },
+  "fred_ECBDFR": {
+    "source": "fred",
+    "key": "ECBDFR",
+    "last_update": "2025-12-06T16:43:33.664618",
+    "rows": 1825,
+    "columns": [
+      "ECBDFR"
+    ],
+    "start_date": "2020-12-07 00:00:00",
+    "end_date": "2025-12-05 00:00:00"
+  },
+  "fred_IRSTCI01JPM156N": {
+    "source": "fred",
+    "key": "IRSTCI01JPM156N",
+    "last_update": "2025-12-06T16:43:34.297584",
+    "rows": 59,
+    "columns": [
+      "IRSTCI01JPM156N"
+    ],
+    "start_date": "2020-12-01 00:00:00",
+    "end_date": "2025-10-01 00:00:00"
+  },
+  "fred_DGS2": {
+    "source": "fred",
+    "key": "DGS2",
+    "last_update": "2025-12-06T16:43:34.776218",
+    "rows": 1304,
+    "columns": [
+      "DGS2"
+    ],
+    "start_date": "2020-12-07 00:00:00",
+    "end_date": "2025-12-04 00:00:00"
+  },
+  "fred_DGS10": {
+    "source": "fred",
+    "key": "DGS10",
+    "last_update": "2025-12-06T16:43:35.404651",
+    "rows": 1304,
+    "columns": [
+      "DGS10"
+    ],
+    "start_date": "2020-12-07 00:00:00",
+    "end_date": "2025-12-04 00:00:00"
+  },
+  "yahoo_DXY_1d": {
+    "source": "yahoo",
+    "key": "DXY_1d",
+    "last_update": "2025-12-06T16:45:33.807486",
+    "rows": 1261,
+    "columns": [
+      "open",
+      "high",
+      "low",
+      "close",
+      "volume",
+      "dividends",
+      "stock splits",
+      "symbol",
+      "ticker_used"
+    ],
+    "start_date": "2020-12-07 00:00:00-05:00",
+    "end_date": "2025-12-05 00:00:00-05:00"
+  },
+  "yahoo_SPX_1d": {
+    "source": "yahoo",
+    "key": "SPX_1d",
+    "last_update": "2025-12-06T16:45:33.987593",
+    "rows": 1256,
+    "columns": [
+      "open",
+      "high",
+      "low",
+      "close",
+      "volume",
+      "dividends",
+      "stock splits",
+      "capital gains",
+      "symbol",
+      "ticker_used"
+    ],
+    "start_date": "2020-12-07 00:00:00-05:00",
+    "end_date": "2025-12-05 00:00:00-05:00"
+  },
+  "yahoo_VIX_1d": {
+    "source": "yahoo",
+    "key": "VIX_1d",
+    "last_update": "2025-12-06T16:45:34.178299",
+    "rows": 1256,
+    "columns": [
+      "open",
+      "high",
+      "low",
+      "close",
+      "volume",
+      "dividends",
+      "stock splits",
+      "capital gains",
+      "symbol",
+      "ticker_used"
+    ],
+    "start_date": "2020-12-07 00:00:00-05:00",
+    "end_date": "2025-12-05 00:00:00-05:00"
+  },
+  "yahoo_GOLD_1d": {
+    "source": "yahoo",
+    "key": "GOLD_1d",
+    "last_update": "2025-12-06T16:45:34.293523",
+    "rows": 1256,
+    "columns": [
+      "open",
+      "high",
+      "low",
+      "close",
+      "volume",
+      "dividends",
+      "stock splits",
+      "capital gains",
+      "symbol",
+      "ticker_used"
+    ],
+    "start_date": "2020-12-07 00:00:00-05:00",
+    "end_date": "2025-12-05 00:00:00-05:00"
+  },
+  "yahoo_OIL_1d": {
+    "source": "yahoo",
+    "key": "OIL_1d",
+    "last_update": "2025-12-06T16:45:34.443084",
+    "rows": 1256,
+    "columns": [
+      "open",
+      "high",
+      "low",
+      "close",
+      "volume",
+      "dividends",
+      "stock splits",
+      "capital gains",
+      "symbol",
+      "ticker_used"
+    ],
+    "start_date": "2020-12-07 00:00:00-05:00",
+    "end_date": "2025-12-05 00:00:00-05:00"
+  },
+  "fred_EURUSD_rate_diff": {
+    "source": "fred",
+    "key": "EURUSD_rate_diff",
+    "last_update": "2025-12-06T16:46:27.410365",
+    "rows": 1825,
+    "columns": [
+      "EURUSD_rate_diff"
+    ],
+    "start_date": "2020-12-07 00:00:00",
+    "end_date": "2025-12-05 00:00:00"
+  },
+  "fred_AUDJPY_rate_diff": {
+    "source": "fred",
+    "key": "AUDJPY_rate_diff",
+    "last_update": "2025-12-06T17:12:49.165136",
+    "rows": 59,
+    "columns": [
+      "AUDJPY_rate_diff"
+    ],
+    "start_date": "2020-12-01 00:00:00",
+    "end_date": "2025-10-01 00:00:00"
+  },
+  "fred_AUDUSD_rate_diff": {
+    "source": "fred",
+    "key": "AUDUSD_rate_diff",
+    "last_update": "2025-12-06T17:13:03.126992",
+    "rows": 1825,
+    "columns": [
+      "AUDUSD_rate_diff"
+    ],
+    "start_date": "2020-12-01 00:00:00",
+    "end_date": "2025-12-04 00:00:00"
+  },
+  "fred_CHFJPY_rate_diff": {
+    "source": "fred",
+    "key": "CHFJPY_rate_diff",
+    "last_update": "2025-12-06T17:13:16.886996",
+    "rows": 59,
+    "columns": [
+      "CHFJPY_rate_diff"
+    ],
+    "start_date": "2020-12-01 00:00:00",
+    "end_date": "2025-10-01 00:00:00"
+  },
+  "fred_EURJPY_rate_diff": {
+    "source": "fred",
+    "key": "EURJPY_rate_diff",
+    "last_update": "2025-12-06T17:13:30.827452",
+    "rows": 1826,
+    "columns": [
+      "EURJPY_rate_diff"
+    ],
+    "start_date": "2020-12-01 00:00:00",
+    "end_date": "2025-12-05 00:00:00"
+  },
+  "fred_NZDUSD_rate_diff": {
+    "source": "fred",
+    "key": "NZDUSD_rate_diff",
+    "last_update": "2025-12-06T17:14:26.660703",
+    "rows": 1825,
+    "columns": [
+      "NZDUSD_rate_diff"
+    ],
+    "start_date": "2020-12-01 00:00:00",
+    "end_date": "2025-12-04 00:00:00"
+  },
+  "fred_USDCAD_rate_diff": {
+    "source": "fred",
+    "key": "USDCAD_rate_diff",
+    "last_update": "2025-12-06T17:14:40.987787",
+    "rows": 1825,
+    "columns": [
+      "USDCAD_rate_diff"
+    ],
+    "start_date": "2020-12-01 00:00:00",
+    "end_date": "2025-12-04 00:00:00"
+  },
+  "fred_USDCHF_rate_diff": {
+    "source": "fred",
+    "key": "USDCHF_rate_diff",
+    "last_update": "2025-12-06T17:14:54.934766",
+    "rows": 1825,
+    "columns": [
+      "USDCHF_rate_diff"
+    ],
+    "start_date": "2020-12-01 00:00:00",
+    "end_date": "2025-12-04 00:00:00"
+  },
+  "fred_USDJPY_rate_diff": {
+    "source": "fred",
+    "key": "USDJPY_rate_diff",
+    "last_update": "2025-12-06T17:33:26.603558",
+    "rows": 1825,
+    "columns": [
+      "USDJPY_rate_diff"
+    ],
+    "start_date": "2020-12-01 00:00:00",
+    "end_date": "2025-12-04 00:00:00"
+  }
+}

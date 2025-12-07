@@ -19,7 +19,8 @@ from src.features import (
     fx_factors,
     cross_asset,
     session,
-    liquidity
+    liquidity,
+    indicators
 )
 
 
@@ -70,7 +71,8 @@ class FeatureGenerator:
             'fx_factors': fx_factors,
             'cross_asset': cross_asset,
             'session': session,
-            'liquidity': liquidity
+            'liquidity': liquidity,
+            'indicators': indicators
         }
     
     def _get_feature_function(self, module_name: str, function_name: str) -> Optional[Callable]:
