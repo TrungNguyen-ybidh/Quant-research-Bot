@@ -1,6 +1,8 @@
 # Quantitative Research Bot
 
-A production-grade quantitative research system for FX trading, featuring institutional-quality data collection, intrinsic-time transformation, and comprehensive feature engineering.
+A production-grade quantitative research system for FX market analysis, featuring institutional-quality data collection, intrinsic-time transformation, and comprehensive feature engineering.
+
+> **Note**: This is a research tool developed for CS 3200 at Northeastern University. It analyzes and describes market conditions but does **NOT** generate trading signals or recommendations. The goal is to understand market behavior, not to trade.
 
 ## 🎯 Overview
 
@@ -8,24 +10,24 @@ This system provides a complete pipeline for quantitative FX research:
 
 1. **Data Collection** - Automated data fetching from Interactive Brokers (IBKR)
 2. **Intrinsic-Time Transformation** - Convert clock-time data to event-driven intrinsic time
-3. **Feature Engineering** - Generate 50-200+ features with dependency resolution
+3. **Feature Engineering** - Generate 78 features across 8 categories with dependency resolution
 4. **Multi-Timeframe Support** - Align and merge features across timeframes
-5. **Market State Detection** - Regime, volatility, and transition models using LSTM networks
-6. **State Aggregation** - Unified market state with actionable trading recommendations
+5. **Market State Detection** - Regime, volatility, and transition models using neural networks
+6. **Market State Analysis** - Unified market state description for research
 7. **ML-Ready Output** - Clean feature matrices with full reproducibility tracking
 
 ### Key Features
 
 - ✅ **Automated Data Collection** - Incremental updates from IBKR with robust error handling
 - ✅ **Intrinsic-Time Processing** - Directional-change (DC) event detection and overshoot tracking
-- ✅ **Institution-Grade Feature Engineering** - 50-200+ features across 8 categories
+- ✅ **Institution-Grade Feature Engineering** - 78 features across 8 categories
 - ✅ **YAML-Driven Configuration** - All parameters configurable without code changes
 - ✅ **Multi-Timeframe Alignment** - Seamlessly combine features from different timeframes
 - ✅ **Feature Dependency System** - Automatic dependency resolution and computation ordering
 - ✅ **Schema Version Control** - Full reproducibility with metadata tracking
 - ✅ **Robust Data Handling** - Recovery mechanisms for corrupted Parquet files
 - ✅ **Market State Detection** - Regime, volatility, and transition models with neural networks
-- ✅ **State Aggregation** - Unified market state combining all models with trading recommendations
+- ✅ **Market State Analysis** - Unified state description combining regime, volatility, and transition models
 - ✅ **Production-Ready** - Comprehensive logging, validation, and error handling
 
 ## 📋 Table of Contents
@@ -157,7 +159,7 @@ See [CONFIG_README.md](CONFIG_README.md) for detailed configuration documentatio
          │
          ▼
 ┌─────────────────┐
-│   Feature       │  Generate 50-200+ features
+│   Feature       │  Generate 78 features
 │   Engineering   │
 └────────┬────────┘
          │
@@ -171,7 +173,8 @@ See [CONFIG_README.md](CONFIG_README.md) for detailed configuration documentatio
          │
          ▼
 ┌─────────────────┐
-│ State Aggregator│  Combine models → Trading signals
+│ Market State    │  Combine models → State description
+│ Analyzer        │  (Research tool, NO trading signals)
 └─────────────────┘
 ```
 
@@ -388,6 +391,41 @@ intrinsic_df = load_intrinsic_data("EURUSD", delta=0.0010, timeframe="1 hour")
 
 ## 🤖 Machine Learning Models
 
+### Research Objectives
+
+This tool answers the following research questions:
+- **"What regime is the market in?"** - Trending (up/down) vs ranging
+- **"What is the volatility state?"** - Low/normal/high/crisis conditions
+- **"Is a regime transition likely?"** - Early warning of state changes
+- **"How do conditions vary across currency pairs?"** - Cross-market analysis
+
+**What this tool does NOT do:**
+- Generate buy/sell signals
+- Recommend position sizes
+- Execute trades
+- Promise any returns
+
+### Model Performance
+
+**Baseline Performance (EURUSD 1h):**
+
+| Model | Classes | Accuracy | Notes |
+|-------|---------|----------|-------|
+| Regime Classifier | RANGING, TREND_UP, TREND_DOWN | ~33% (1h), ~40% (1d) | Best on AUDUSD; rarely predicts RANGING |
+| Volatility Classifier | LOW, NORMAL, HIGH, CRISIS | **77%** avg | Strong performance vs 25% baseline |
+| Transition Detector | STABLE, TRANSITIONING | 76% | ⚠️ Over-predicts transitions (98.8% of predictions) |
+
+**Known Issues:**
+- Transition detector predicts transitions 98.8% of the time due to class imbalance
+- Regime classifier rarely predicts RANGING (only 4.4% of predictions)
+- USDCAD performs worst on regime classification, best on volatility
+
+**Trained Models:**
+- **55 regime models** (11 pairs × 5 timeframes: 1m, 5m, 15m, 1h, 1d)
+- **11 volatility models** (11 pairs × 1h only)
+- **11 transition models** (11 pairs × 1h only)
+- **Total: 77 trained PyTorch models**
+
 ### State Detection Models
 
 The system includes three specialized models for market state detection:
@@ -441,52 +479,56 @@ transition, probability = model.predict(features)
 python scripts/train_transition_model.py --symbol EURUSD --timeframe 1h
 ```
 
-### State Aggregator
+### Market State Analyzer
 
-Combines all three models into a unified market state with trading recommendations:
+Combines all three models into a unified market state description for research:
 
 ```python
-from src.models.state import StateAggregator
+from src.models.state import MarketStateAnalyzer
 
-# Initialize aggregator
-aggregator = StateAggregator(symbol="EURUSD", timeframe="1h")
-aggregator.load_models()
+# Initialize analyzer (NOT aggregator)
+analyzer = MarketStateAnalyzer(symbol="EURUSD", timeframe="1h")
+analyzer.load_models()
 
-# Get current market state
-state = aggregator.predict(features)
+# Get market state (NOT trading signals)
+state = analyzer.get_market_state(features)
 
-# Access predictions
-print(state.regime_name)           # 'TREND_UP'
-print(state.volatility_name)       # 'NORMAL'
-print(state.is_transitioning)      # False
-print(state.recommendation)        # 'TRADE_LONG'
-print(state.position_size_modifier) # 0.85
-print(state.confidence_score)      # 0.72
+# Access state information
+print(state.regime)              # 'TREND_UP'
+print(state.regime_confidence)   # 0.67
+print(state.volatility_regime)   # 'NORMAL'
+print(state.volatility_confidence) # 0.81
+print(state.is_transitioning)    # False
+print(state.transition_probability) # 0.12
+print(state.state_code)          # 'TREND_UP_NORMAL_STABLE'
 
-# Pretty print
-aggregator.print_state(state)
+# Pretty print full summary
+print(state.summary())
 ```
 
-**Recommendations:**
-- `STRONG_LONG` / `STRONG_SHORT` - High confidence trending markets
-- `TRADE_LONG` / `TRADE_SHORT` - Moderate confidence trends
-- `WEAK_LONG` / `WEAK_SHORT` - Low confidence trends
-- `HOLD` - Ranging markets or during transitions
-- `AVOID` - Crisis volatility conditions
+**MarketState Fields:**
+- `regime` - Current regime (RANGING, TREND_UP, TREND_DOWN)
+- `regime_confidence` - Confidence in regime prediction (0-1)
+- `volatility_regime` - Volatility state (LOW, NORMAL, HIGH, CRISIS)
+- `volatility_confidence` - Confidence in volatility prediction (0-1)
+- `is_transitioning` - Boolean indicating expected regime change
+- `transition_probability` - Probability of transition (0-1)
+- `state_code` - Compact code (e.g., "TREND_UP_NORMAL_STABLE")
+- `summary()` - Human-readable formatted summary
 
-### Multi-Pair Aggregator
+### Multi-Pair Analyzer
 
-Aggregate state across multiple currency pairs for portfolio-level decisions:
+Analyze market state across multiple currency pairs for cross-market research:
 
 ```python
-from src.models.state import MultiPairAggregator
+from src.models.state import MultiPairAnalyzer
 
 # Initialize for multiple pairs
-multi_agg = MultiPairAggregator(
-    pairs=["EURUSD", "GBPUSD", "USDJPY"],
+multi_analyzer = MultiPairAnalyzer(
+    symbols=["EURUSD", "GBPUSD", "USDJPY"],
     timeframe="1h"
 )
-multi_agg.load_all_models()
+multi_analyzer.load_all_models()
 
 # Get states for all pairs
 features_dict = {
@@ -494,12 +536,16 @@ features_dict = {
     "GBPUSD": gbpusd_features,
     "USDJPY": usdjpy_features
 }
-states = multi_agg.get_all_states(features_dict)
+states = multi_analyzer.get_all_states(features_dict)
 
-# Portfolio summary
-summary = multi_agg.get_portfolio_summary(states)
-print(f"Average confidence: {summary['avg_confidence']:.2%}")
-print(f"Recommendations: {summary['recommendations']}")
+# Research summary
+summary = multi_analyzer.get_market_summary(states)
+print(f"Dominant regime: {summary['dominant_regime']}")
+print(f"Dominant volatility: {summary['dominant_volatility']}")
+print(f"Pairs transitioning: {summary['n_transitioning']}/{summary['n_pairs']}")
+
+# Print research dashboard
+multi_analyzer.print_dashboard(states)
 ```
 
 ### Model Architecture
@@ -602,10 +648,10 @@ for feat_name, feat_info in metadata['computed_features'].items():
     print(f"{feat_name}: {feat_info['null_count']} nulls")
 ```
 
-### Example 5: Get Market State and Trading Recommendation
+### Example 5: Get Market State Analysis
 
 ```python
-from src.models.state import StateAggregator
+from src.models.state import MarketStateAnalyzer
 from src.data.loader import load_parquet
 from src.feature_engineering import FeatureGenerator
 
@@ -616,53 +662,59 @@ df = df.set_index('timestamp')
 generator = FeatureGenerator()
 features = generator.compute_all_features(df)
 
-# Initialize state aggregator
-aggregator = StateAggregator(symbol="EURUSD", timeframe="1h")
-aggregator.load_models()
+# Initialize market state analyzer
+analyzer = MarketStateAnalyzer(symbol="EURUSD", timeframe="1h")
+analyzer.load_models()
 
 # Get current market state
-state = aggregator.predict(features.tail(100))  # Use last 100 bars
+state = analyzer.get_market_state(features.tail(100))  # Use last 100 bars
 
-# Display results
-aggregator.print_state(state)
+# Display full summary
+print(state.summary())
 
 # Access individual components
-print(f"\nRecommendation: {state.recommendation}")
-print(f"Position Size: {state.position_size_modifier:.0%} of normal")
-print(f"Confidence: {state.confidence_score:.1%}")
+print(f"\nRegime: {state.regime}")
+print(f"Regime Confidence: {state.regime_confidence:.1%}")
+print(f"Volatility: {state.volatility_regime}")
+print(f"Is Transitioning: {state.is_transitioning}")
+print(f"State Code: {state.state_code}")
 ```
 
-### Example 6: Multi-Pair Portfolio Analysis
+### Example 6: Multi-Pair Market Analysis
 
 ```python
-from src.models.state import MultiPairAggregator
+from src.models.state import MultiPairAnalyzer
 from src.data.loader import load_parquet
 from src.feature_engineering import FeatureGenerator
 
 # Load features for multiple pairs
-pairs = ["EURUSD", "GBPUSD", "USDJPY"]
+symbols = ["EURUSD", "GBPUSD", "USDJPY"]
 features_dict = {}
 
 generator = FeatureGenerator()
 
-for pair in pairs:
-    df = load_parquet("data/raw/clock", pair, "1 hour")
+for symbol in symbols:
+    df = load_parquet("data/raw/clock", symbol, "1 hour")
     df = df.set_index('timestamp')
     features = generator.compute_all_features(df)
-    features_dict[pair] = features.tail(100)
+    features_dict[symbol] = features.tail(100)
 
-# Initialize multi-pair aggregator
-multi_agg = MultiPairAggregator(pairs=pairs, timeframe="1h")
-multi_agg.load_all_models()
+# Initialize multi-pair analyzer
+multi_analyzer = MultiPairAnalyzer(symbols=symbols, timeframe="1h")
+multi_analyzer.load_all_models()
 
 # Get states for all pairs
-states = multi_agg.get_all_states(features_dict)
+states = multi_analyzer.get_all_states(features_dict)
 
-# Portfolio summary
-summary = multi_agg.get_portfolio_summary(states)
-print(f"Portfolio Confidence: {summary['avg_confidence']:.1%}")
-print(f"Recommendations: {summary['recommendations']}")
-print(f"Pairs in Transition: {summary['n_transitioning']}/{summary['n_pairs']}")
+# Research summary
+summary = multi_analyzer.get_market_summary(states)
+print(f"Dominant Regime: {summary['dominant_regime']}")
+print(f"Dominant Volatility: {summary['dominant_volatility']}")
+print(f"Pairs Transitioning: {summary['n_transitioning']}/{summary['n_pairs']}")
+print(f"Average Regime Confidence: {summary['avg_regime_confidence']:.1%}")
+
+# Print research dashboard
+multi_analyzer.print_dashboard(states)
 ```
 
 ## 📁 Project Structure
@@ -688,7 +740,7 @@ quant-research-bot/
 │   │   │   ├── regime_classifier.py      # Regime detection
 │   │   │   ├── volatility_regime.py      # Volatility regime detection
 │   │   │   ├── transition_detector.py    # Transition detection
-│   │   │   └── state_aggregator.py       # Unified state aggregator
+│   │   │   └── state_aggregator.py       # Market state analyzer
 │   │   ├── baseline_predictor.py         # Baseline models
 │   │   ├── feature_selection.py          # Feature selection
 │   │   └── preprocessing.py              # Data preprocessing
@@ -702,8 +754,7 @@ quant-research-bot/
 │   ├── test_state_aggregator.py   # Test state aggregator
 │   ├── test_state_analyzer.py     # Analyze state predictions
 │   ├── analyze_full_dataset.py    # Batch predictions on full dataset
-│   ├── generate_market_report.py  # Generate market state reports
-│   └── validate_signal.py         # Validate trading signals
+│   └── generate_market_report.py  # Generate market state reports
 ├── examples/                # Usage examples
 ├── notebooks/               # Jupyter notebooks
 ├── outputs/                 # Models, plots, reports
@@ -768,21 +819,15 @@ Train regime transition detection model:
 python scripts/train_transition_model.py --symbol EURUSD --timeframe 1h
 ```
 
-### `scripts/test_state_aggregator.py`
-
-Test the state aggregator with real data:
-
-```bash
-python scripts/test_state_aggregator.py --symbol EURUSD --timeframe 1h
-```
-
 ### `scripts/test_state_analyzer.py`
 
-Analyze state predictions across historical data:
+Test the market state analyzer with real data:
 
 ```bash
 python scripts/test_state_analyzer.py --symbol EURUSD --timeframe 1h
 ```
+
+Analyzes market state predictions across historical data and provides research insights.
 
 ### `scripts/analyze_full_dataset.py`
 
@@ -792,6 +837,8 @@ Run batch predictions on full dataset for comprehensive analysis:
 python scripts/analyze_full_dataset.py --symbol EURUSD --timeframe 1h
 ```
 
+Performs batch analysis across entire historical datasets to understand model behavior over time.
+
 ### `scripts/generate_market_report.py`
 
 Generate comprehensive market state reports for multiple pairs:
@@ -800,13 +847,6 @@ Generate comprehensive market state reports for multiple pairs:
 python scripts/generate_market_report.py --pairs EURUSD GBPUSD USDJPY --timeframe 1h
 ```
 
-### `scripts/validate_signal.py`
-
-Validate trading signals:
-
-```bash
-python scripts/validate_signal.py --symbol EURUSD --timeframe 1h
-```
 
 ### `src/main.py`
 
@@ -870,12 +910,12 @@ Collects data for all symbols and timeframes defined in config.
 
 ## 🔮 Future Enhancements
 
+- [ ] Improve regime classifier performance (better class balancing)
+- [ ] Fix transition detector class imbalance
 - [ ] Real-time data streaming
-- [ ] Backtesting framework
-- [ ] Portfolio optimization
-- [ ] Web dashboard
+- [ ] Enhanced evaluation metrics and visualizations
+- [ ] Web dashboard for market state monitoring
 - [ ] Additional data sources (Oanda, etc.)
-- [ ] Reinforcement learning for position sizing
 - [ ] Multi-asset class support (stocks, crypto)
 
 
@@ -885,7 +925,7 @@ Collects data for all symbols and timeframes defined in config.
 
 ---
 
-**Built for quantitative FX research with institutional-grade quality.**
+**Built for quantitative FX research at Northeastern University CS 3200.**
 ```
 
 This README covers:
