@@ -29,8 +29,10 @@ Example:
 
 from .regime_classifier import RegimeClassifier
 from .volatility_regime import VolatilityRegimeClassifier
+from .transition_detector import TransitionDetector
 
 __all__ = [
     'RegimeClassifier',
     'VolatilityRegimeClassifier',
+    'TransitionDetector',
 ]
