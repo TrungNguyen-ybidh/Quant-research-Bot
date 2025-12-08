@@ -923,22 +923,6 @@ Collects data for all symbols and timeframes defined in config.
 
 [Trung Nguyen]
 
----
-
-**Built for quantitative FX research at Northeastern University CS 3200.**
-```
-
-This README covers:
-- Overview and features
-- Installation steps
-- Quick start examples
-- Configuration details
-- Architecture overview
-- Data pipeline explanation
-- Feature engineering guide
-- Intrinsic time concepts
-- Usage examples
-- Project structure
 - Scripts documentation
 - Troubleshooting guide
 
