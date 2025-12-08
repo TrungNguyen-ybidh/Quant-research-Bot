@@ -123,10 +123,10 @@ def train_single_model(
         info(f"Timeframe:        {timeframe}")
         info(f"Architecture:     {architecture.upper()}")
         info(f"Total epochs:     {len(train_history['train_loss'])}")
-        info(f"Best epoch:       {train_history['best_epoch']}")
-        info(f"Best val loss:    {train_history['best_val_loss']:.4f}")
-        info(f"Test accuracy:    {test_metrics['test_accuracy']:.2%}")
-        info(f"Test loss:        {test_metrics['test_loss']:.4f}")
+        info(f"Best epoch:       {classifier.trainer.best_metrics.get('epoch', 'N/A')}")
+        info(f"Best val loss:    {classifier.trainer.best_metrics.get('val_loss', 0):.4f}")
+        info(f"Test accuracy:    {test_metrics['accuracy']:.2%}")
+        info(f"Test loss:        {test_metrics['loss']:.4f}")
         info(f"Training time:    {elapsed_time:.1f}s ({elapsed_time/60:.1f}m)")
         info(f"Completed at:     {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
         info("="*100)
@@ -136,9 +136,9 @@ def train_single_model(
             'timeframe': timeframe,
             'architecture': architecture,
             'success': True,
-            'test_accuracy': test_metrics['test_accuracy'],
-            'test_loss': test_metrics['test_loss'],
-            'best_val_loss': train_history['best_val_loss'],
+            'test_accuracy': test_metrics['accuracy'],
+            'test_loss': test_metrics['loss'],
+            'best_val_loss': classifier.trainer.best_metrics.get('val_loss', 0),
             'epochs': len(train_history['train_loss']),
             'training_time_seconds': elapsed_time
         }

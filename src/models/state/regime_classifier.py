@@ -179,7 +179,7 @@ class RegimeClassifier:
         # Now filter both by valid indices
         valid_mask = ~self.y.isna()
         self.df = self.df[valid_mask].reset_index(drop=True)
-        self.y = self.y[valid_mask].values
+        self.y = self.y[valid_mask].reset_index(drop=True)
         info(f"\nAfter removing NaN labels: {len(self.df)} samples")
         
         # Preprocessing
@@ -222,14 +222,14 @@ class RegimeClassifier:
         info("="*80)
         
         self.splitter = TimeSeriesSplitter(
-            train_size=0.7,
-            val_size=0.15,
-            test_size=0.15
+            train_ratio=0.70,
+            val_ratio=0.15,
+            test_ratio=0.15
         )
         
-        splits = self.splitter.train_val_test_split(self.X, self.y)
-        self.X_train, self.X_val, self.X_test = splits['X_train'], splits['X_val'], splits['X_test']
-        self.y_train, self.y_val, self.y_test = splits['y_train'], splits['y_val'], splits['y_test']
+        splits = self.splitter.split(self.X, self.y)
+        self.X_train, self.X_val, self.X_test = splits.X_train, splits.X_val, splits.X_test
+        self.y_train, self.y_val, self.y_test = splits.y_train, splits.y_val, splits.y_test
         
         info(f"Train: {len(self.X_train)} samples")
         info(f"Val:   {len(self.X_val)} samples")
@@ -292,33 +292,35 @@ class RegimeClassifier:
         info(f"  Output classes: {n_classes}")
         info(f"  Parameters: {sum(p.numel() for p in self.model.parameters()):,}")
         
-        # Create data module
+        # Create data module (it will do the splitting internally)
+        # Note: Features are already preprocessed/scaled, so set scale_features=False
         data_module = TimeSeriesDataModule(
-            X_train=self.X_train,
-            y_train=self.y_train,
-            X_val=self.X_val,
-            y_val=self.y_val,
-            X_test=self.X_test,
-            y_test=self.y_test,
-            batch_size=nn_config.get('batch_size', 64)
+            X=self.X,
+            y=self.y,
+            train_ratio=0.70,
+            val_ratio=0.15,
+            test_ratio=0.15,
+            batch_size=nn_config.get('batch_size', 64),
+            seq_length=None if self.architecture == "mlp" else 24,
+            scale_features=False  # Already scaled by FeaturePreprocessor
         )
         
         # Training config
         training_config = self.config.get('training', {})
         trainer_config = TrainerConfig(
-            max_epochs=nn_config.get('default_epochs', 100),
-            learning_rate=nn_config.get('learning_rate', 0.001),
+            epochs=nn_config.get('default_epochs', 100),
+            lr=nn_config.get('learning_rate', 0.001),
             weight_decay=nn_config.get('weight_decay', 0.0001),
-            early_stopping_patience=nn_config.get('early_stopping_patience', 10),
+            patience=nn_config.get('early_stopping_patience', 10),
             use_class_weights=True,
             device=nn_config.get('device', 'cpu')
         )
         
         info(f"\nTraining Configuration:")
-        info(f"  Max epochs: {trainer_config.max_epochs}")
-        info(f"  Learning rate: {trainer_config.learning_rate}")
+        info(f"  Max epochs: {trainer_config.epochs}")
+        info(f"  Learning rate: {trainer_config.lr}")
         info(f"  Batch size: {data_module.batch_size}")
-        info(f"  Early stopping patience: {trainer_config.early_stopping_patience}")
+        info(f"  Early stopping patience: {trainer_config.patience}")
         info(f"  Device: {trainer_config.device}")
         
         # Train
@@ -329,8 +331,8 @@ class RegimeClassifier:
         )
         
         info("\n✓ Training complete")
-        info(f"Best epoch: {self.train_history['best_epoch']}")
-        info(f"Best val loss: {self.train_history['best_val_loss']:.4f}")
+        info(f"Best epoch: {self.trainer.best_metrics.get('epoch', 'N/A')}")
+        info(f"Best val loss: {self.trainer.best_metrics.get('val_loss', 0):.4f}")
         
         return self.train_history
     
@@ -349,20 +351,21 @@ class RegimeClassifier:
         info("="*80)
         
         data_module = TimeSeriesDataModule(
-            X_train=self.X_train,
-            y_train=self.y_train,
-            X_val=self.X_val,
-            y_val=self.y_val,
-            X_test=self.X_test,
-            y_test=self.y_test,
-            batch_size=64
+            X=self.X,
+            y=self.y,
+            train_ratio=0.70,
+            val_ratio=0.15,
+            test_ratio=0.15,
+            batch_size=64,
+            seq_length=None if self.architecture == "mlp" else 24,
+            scale_features=False  # Already scaled by FeaturePreprocessor
         )
         
         self.test_metrics = self.trainer.evaluate(data_module.test_dataloader())
         
         info("\nTest Set Results:")
-        info(f"  Loss:     {self.test_metrics['test_loss']:.4f}")
-        info(f"  Accuracy: {self.test_metrics['test_accuracy']:.2%}")
+        info(f"  Loss:     {self.test_metrics['loss']:.4f}")
+        info(f"  Accuracy: {self.test_metrics['accuracy']:.2%}")
         
         info("\n✓ Evaluation complete")
         
@@ -435,9 +438,18 @@ class RegimeClassifier:
         info(f"Saved config: {config_path}")
         
         # Save metrics
+        # Create a JSON-safe copy of test_metrics (exclude numpy arrays)
+        test_metrics_safe = {
+            k: v for k, v in self.test_metrics.items() 
+            if k not in ['predictions', 'targets', 'probabilities', 'confusion_matrix']
+        }
+        # Add confusion matrix as list (it's already a list from evaluate())
+        if 'confusion_matrix' in self.test_metrics:
+            test_metrics_safe['confusion_matrix'] = self.test_metrics['confusion_matrix']
+        
         metrics_data = {
             'train_history': self.train_history,
-            'test_metrics': self.test_metrics,
+            'test_metrics': test_metrics_safe,
             'regime_distribution': {
                 'train': pd.Series(self.y_train).value_counts().to_dict(),
                 'val': pd.Series(self.y_val).value_counts().to_dict(),

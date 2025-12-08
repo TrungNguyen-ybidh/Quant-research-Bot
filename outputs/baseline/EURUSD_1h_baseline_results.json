@@ -1,0 +1,381 @@
+{
+  "symbol": "EURUSD",
+  "timeframe": "1h",
+  "timestamp": "2025-12-07T21:33:28.396393",
+  "config": {
+    "lookahead_bars": 4,
+    "target_threshold": 0.0001,
+    "train_ratio": 0.7
+  },
+  "target_stats": {
+    "total_samples": 8752,
+    "positive_class": 4507,
+    "negative_class": 4245,
+    "positive_ratio": 0.5149680073126143,
+    "negative_ratio": 0.4850319926873857,
+    "is_balanced": true
+  },
+  "split_info": {
+    "train_size": 6126,
+    "val_size": 1313,
+    "test_size": 1313,
+    "train_ratio": 0.6999542961608776,
+    "val_ratio": 0.15002285191956125,
+    "test_ratio": 0.15002285191956125
+  },
+  "feature_count": 70,
+  "features_used": [
+    "dc_return_x",
+    "overshoot_return_x",
+    "event_frequency",
+    "clustering",
+    "multi_delta_agreement",
+    "intrinsic_trend_strength",
+    "realized_vol_5m",
+    "realized_vol_15m",
+    "realized_vol_60m",
+    "bipower_variation",
+    "parkinson_volatility",
+    "skew",
+    "kurtosis",
+    "variance_ratio",
+    "hurst_exponent",
+    "micro_price",
+    "synthetic_spread",
+    "relative_spread",
+    "wick_ratio",
+    "body_ratio",
+    "rejection_wicks",
+    "standardized_range",
+    "volume_adv_ratio",
+    "sma_ratio_10_20",
+    "ema_ratio_12_26",
+    "adx",
+    "trend_strength",
+    "price_position",
+    "carry_factor",
+    "carry_raw",
+    "momentum_factor",
+    "value_factor",
+    "volatility_factor",
+    "yield_curve_factor",
+    "rate_level_factor",
+    "correlation_regime",
+    "london_session",
+    "new_york_session",
+    "asia_session",
+    "session_overlap",
+    "session_volatility",
+    "bid_ask_spread",
+    "spread_percentile",
+    "liquidity_score",
+    "rsi",
+    "rsi_normalized",
+    "macd",
+    "macd_signal",
+    "stochastic_k",
+    "stochastic_normalized",
+    "cci",
+    "cci_normalized",
+    "williams_r",
+    "williams_r_normalized",
+    "roc",
+    "atr",
+    "atr_normalized",
+    "obv",
+    "obv_normalized",
+    "mfi",
+    "mfi_normalized",
+    "pivot_point",
+    "bollinger_bandwidth",
+    "bollinger_percent_b",
+    "overshoot_ratio_x",
+    "volatility_of_vol",
+    "jump_component",
+    "macd_histogram",
+    "stochastic_d",
+    "pivot_distance"
+  ],
+  "model_results": {
+    "logistic_regression": {
+      "train": {
+        "accuracy": 0.5582761998041136,
+        "auc_roc": 0.5811257097724458,
+        "precision": 0.5779694757796947,
+        "recall": 0.5484886649874056,
+        "f1": 0.562843295638126,
+        "confusion_matrix": [
+          [
+            1678,
+            1272
+          ],
+          [
+            1434,
+            1742
+          ]
+        ]
+      },
+      "val": {
+        "accuracy": 0.5034272658035034,
+        "auc_roc": 0.5293002556927604,
+        "precision": 0.5012755102040817,
+        "recall": 0.6009174311926605,
+        "f1": 0.5465924895688457,
+        "confusion_matrix": [
+          [
+            268,
+            391
+          ],
+          [
+            261,
+            393
+          ]
+        ]
+      },
+      "test": {
+        "accuracy": 0.5247524752475248,
+        "auc_roc": 0.5310261698391907,
+        "precision": 0.5626477541371159,
+        "recall": 0.3515509601181684,
+        "f1": 0.43272727272727274,
+        "confusion_matrix": [
+          [
+            451,
+            185
+          ],
+          [
+            439,
+            238
+          ]
+        ]
+      },
+      "feature_importance": {
+        "cci_normalized": 0.3310111882315281,
+        "carry_raw": 0.25897294751276184,
+        "macd_histogram": 0.181703825846278,
+        "bollinger_bandwidth": 0.1798000531622209,
+        "roc": 0.17852793486305907,
+        "pivot_point": 0.15714222963380275,
+        "micro_price": 0.15426200642564616,
+        "bipower_variation": 0.1539495298434913,
+        "cci": 0.15056313651575498,
+        "london_session": 0.13312671438307902,
+        "obv": 0.1240801888483372,
+        "momentum_factor": 0.12141622532546238,
+        "session_volatility": 0.113957772402153,
+        "synthetic_spread": 0.10209874075241883,
+        "trend_strength": 0.08630825748590121,
+        "macd": 0.0852886354679993,
+        "pivot_distance": 0.08384062264919806,
+        "price_position": 0.08336442528905173,
+        "stochastic_normalized": 0.07937359895823133,
+        "stochastic_d": 0.07937359895822918,
+        "realized_vol_15m": 0.07752015023828139,
+        "realized_vol_5m": 0.07713818640398336,
+        "clustering": 0.06650836868539406,
+        "carry_factor": 0.06571266834579087,
+        "rate_level_factor": 0.06333393952801412,
+        "spread_percentile": 0.06126347370226815,
+        "asia_session": 0.05885565397544255,
+        "atr": 0.057745618599801485,
+        "skew": 0.05655723471349708,
+        "obv_normalized": 0.053933447007402595,
+        "atr_normalized": 0.04883541884361649,
+        "rsi_normalized": 0.04866110080644281,
+        "rsi": 0.048661100806442266,
+        "jump_component": 0.04525900540115815,
+        "kurtosis": 0.043742194298251554,
+        "adx": 0.04261017588528778,
+        "value_factor": 0.04218059151249578,
+        "rejection_wicks": 0.041433017489178096,
+        "bid_ask_spread": 0.04002561403079661,
+        "body_ratio": 0.03816137555575968,
+        "sma_ratio_10_20": 0.036398314534819474,
+        "macd_signal": 0.033743214978417674,
+        "williams_r_normalized": 0.03347959908221303,
+        "williams_r": 0.03347959908221288,
+        "stochastic_k": 0.03347959908221141,
+        "session_overlap": 0.032313040374882473,
+        "mfi_normalized": 0.02679439014886075,
+        "mfi": 0.026794390148857462,
+        "standardized_range": 0.02564518543942162,
+        "volatility_of_vol": 0.021919154475442078,
+        "yield_curve_factor": 0.017471586359564105,
+        "realized_vol_60m": 0.01706257123062441,
+        "parkinson_volatility": 0.014985993427099019,
+        "event_frequency": 0.014954375750483079,
+        "hurst_exponent": 0.013859619829071163,
+        "wick_ratio": 0.013372067039460448,
+        "relative_spread": 0.01238435022748136,
+        "liquidity_score": 0.009806757288346957,
+        "bollinger_percent_b": 0.009532037064142353,
+        "variance_ratio": 0.009335260753159135,
+        "new_york_session": 0.004481407403008239,
+        "ema_ratio_12_26": 0.0033338015578595333,
+        "volatility_factor": 0.001594112891200681,
+        "dc_return_x": 0.0,
+        "overshoot_return_x": 0.0,
+        "multi_delta_agreement": 0.0,
+        "intrinsic_trend_strength": 0.0,
+        "volume_adv_ratio": 0.0,
+        "correlation_regime": 0.0,
+        "overshoot_ratio_x": 0.0
+      },
+      "overfit_ratio": 0.9399513635574085
+    },
+    "random_forest": {
+      "train": {
+        "accuracy": 0.683317009467842,
+        "auc_roc": 0.792125474960509,
+        "precision": 0.7647814910025706,
+        "recall": 0.5620277078085643,
+        "f1": 0.647912885662432,
+        "confusion_matrix": [
+          [
+            2401,
+            549
+          ],
+          [
+            1391,
+            1785
+          ]
+        ]
+      },
+      "val": {
+        "accuracy": 0.5376999238385377,
+        "auc_roc": 0.5380081951617919,
+        "precision": 0.5689149560117303,
+        "recall": 0.2966360856269113,
+        "f1": 0.38994974874371857,
+        "confusion_matrix": [
+          [
+            512,
+            147
+          ],
+          [
+            460,
+            194
+          ]
+        ]
+      },
+      "test": {
+        "accuracy": 0.5270373191165271,
+        "auc_roc": 0.5555331048001263,
+        "precision": 0.5897435897435898,
+        "recall": 0.2717872968980798,
+        "f1": 0.37209302325581395,
+        "confusion_matrix": [
+          [
+            508,
+            128
+          ],
+          [
+            493,
+            184
+          ]
+        ]
+      },
+      "feature_importance": {
+        "pivot_point": 0.0460951154761182,
+        "yield_curve_factor": 0.03392450992733066,
+        "micro_price": 0.0338137380800908,
+        "macd_signal": 0.03240970732065058,
+        "stochastic_normalized": 0.028887639192657112,
+        "sma_ratio_10_20": 0.028255151279669936,
+        "macd": 0.028186591204923492,
+        "synthetic_spread": 0.027855375253509392,
+        "stochastic_d": 0.02765319266551685,
+        "ema_ratio_12_26": 0.025737929689787477,
+        "bipower_variation": 0.025478858855005414,
+        "skew": 0.02294271143672464,
+        "hurst_exponent": 0.022915682632489873,
+        "realized_vol_5m": 0.022633299322779684,
+        "volatility_of_vol": 0.02246843965001661,
+        "kurtosis": 0.02238070039734412,
+        "atr_normalized": 0.022326281210205124,
+        "bollinger_bandwidth": 0.02187787289624294,
+        "parkinson_volatility": 0.02130582686078981,
+        "adx": 0.02094030222494847,
+        "roc": 0.020461590216142408,
+        "obv_normalized": 0.020073540227652887,
+        "jump_component": 0.01876585830182576,
+        "volatility_factor": 0.01847111091909454,
+        "atr": 0.017136469649263613,
+        "realized_vol_15m": 0.016389507102162415,
+        "rsi": 0.01600175433061994,
+        "realized_vol_60m": 0.015611884911971035,
+        "rsi_normalized": 0.015532941836349243,
+        "value_factor": 0.01526262619282305,
+        "variance_ratio": 0.015217987719516386,
+        "mfi_normalized": 0.01401547640728065,
+        "mfi": 0.013743822606783924,
+        "cci": 0.013253401575575346,
+        "williams_r": 0.012940244825376581,
+        "session_volatility": 0.01276724001778786,
+        "stochastic_k": 0.012305549821385988,
+        "body_ratio": 0.012162467464023932,
+        "williams_r_normalized": 0.012150100253396839,
+        "momentum_factor": 0.011989142902726228,
+        "obv": 0.01192210996713551,
+        "liquidity_score": 0.011893041766757217,
+        "price_position": 0.011430992961073973,
+        "macd_histogram": 0.01053632344845846,
+        "bollinger_percent_b": 0.009802878467748315,
+        "trend_strength": 0.009771828644916011,
+        "cci_normalized": 0.009429514232227421,
+        "spread_percentile": 0.00922814439871125,
+        "pivot_distance": 0.009195933488672961,
+        "bid_ask_spread": 0.008919973970746748,
+        "standardized_range": 0.008590677761039608,
+        "wick_ratio": 0.008037850907904168,
+        "relative_spread": 0.008007323798758627,
+        "carry_factor": 0.007399200100056612,
+        "clustering": 0.0069111872587603405,
+        "carry_raw": 0.006029123639362376,
+        "event_frequency": 0.004337091060743531,
+        "london_session": 0.0035354028574356914,
+        "asia_session": 0.0012600872557039008,
+        "rate_level_factor": 0.0006049972376086852,
+        "new_york_session": 0.0005450147240100695,
+        "session_overlap": 0.0001391773405271784,
+        "rejection_wicks": 0.000130481853081529,
+        "dc_return_x": 0.0,
+        "overshoot_return_x": 0.0,
+        "multi_delta_agreement": 0.0,
+        "intrinsic_trend_strength": 0.0,
+        "volume_adv_ratio": 0.0,
+        "correlation_regime": 0.0,
+        "overshoot_ratio_x": 0.0
+      },
+      "overfit_ratio": 0.7712925506229921
+    }
+  },
+  "signal_assessment": {
+    "has_signal": true,
+    "best_model": "random_forest",
+    "best_oos_accuracy": 0.5270373191165271,
+    "best_oos_auc": 0.5555331048001263,
+    "signal_strength": "strong",
+    "model_assessments": {
+      "logistic_regression": {
+        "accuracy": 0.5247524752475248,
+        "auc": 0.5310261698391907,
+        "overfit_ratio": 0.9399513635574085,
+        "passes_accuracy": true,
+        "passes_auc": true,
+        "passes_overfit": true,
+        "is_valid": true
+      },
+      "random_forest": {
+        "accuracy": 0.5270373191165271,
+        "auc": 0.5555331048001263,
+        "overfit_ratio": 0.7712925506229921,
+        "passes_accuracy": true,
+        "passes_auc": true,
+        "passes_overfit": true,
+        "is_valid": true
+      }
+    },
+    "recommendation": "PROCEED - Multiple models show valid signal"
+  }
+}

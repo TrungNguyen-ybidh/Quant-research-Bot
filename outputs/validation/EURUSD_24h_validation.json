@@ -1,0 +1,350 @@
+{
+  "symbol": "EURUSD",
+  "lookahead": 24,
+  "timestamp": "2025-12-07T21:48:12.248961",
+  "walk_forward": {
+    "n_folds": 5,
+    "fold_results": [
+      {
+        "fold": 0,
+        "train_size": 7089,
+        "test_size": 1422,
+        "accuracy": 0.6082981715893109,
+        "auc": 0.6286923259869986,
+        "mean_return": 0.0006146408513258982,
+        "total_return": 0.8740192905854272,
+        "win_rate": 0.5921237693389592
+      },
+      {
+        "fold": 1,
+        "train_size": 5667,
+        "test_size": 1422,
+        "accuracy": 0.4437412095639944,
+        "auc": 0.4376339927611681,
+        "mean_return": -0.0007109427234559235,
+        "total_return": -1.0109605527543233,
+        "win_rate": 0.4310829817158931
+      },
+      {
+        "fold": 2,
+        "train_size": 4245,
+        "test_size": 1422,
+        "accuracy": 0.4760900140646976,
+        "auc": 0.48908620198245556,
+        "mean_return": 0.00036588703828540926,
+        "total_return": 0.520291368441852,
+        "win_rate": 0.4711673699015471
+      },
+      {
+        "fold": 3,
+        "train_size": 2823,
+        "test_size": 1422,
+        "accuracy": 0.4978902953586498,
+        "auc": 0.47863674543178186,
+        "mean_return": 7.79573621288425e-05,
+        "total_return": 0.11085536894721404,
+        "win_rate": 0.4936708860759494
+      },
+      {
+        "fold": 4,
+        "train_size": 1401,
+        "test_size": 1422,
+        "accuracy": 0.4831223628691983,
+        "auc": 0.552630968033311,
+        "mean_return": -0.00029293521585882677,
+        "total_return": -0.4165538769512517,
+        "win_rate": 0.480309423347398
+      }
+    ],
+    "mean_accuracy": 0.5018284106891702,
+    "std_accuracy": 0.05610316026551084,
+    "min_accuracy": 0.4437412095639944,
+    "max_accuracy": 0.6082981715893109,
+    "mean_return_per_fold": 0.015530319653783643,
+    "total_return": 0.07765159826891821,
+    "consistency": 0.2
+  },
+  "cross_pair": {
+    "EURUSD": {
+      "accuracy": 0.5290901991409606,
+      "test_samples": 2561,
+      "gross_sharpe": 0.5763773746903906,
+      "net_sharpe": 0.31864082300691543,
+      "survives_costs": false
+    },
+    "GBPUSD": {
+      "accuracy": 0.5175370226032736,
+      "test_samples": 2566,
+      "gross_sharpe": 7.626511241820267,
+      "net_sharpe": 7.313944892502941,
+      "survives_costs": true
+    },
+    "USDJPY": {
+      "accuracy": 0.5159038013964313,
+      "test_samples": 2578,
+      "gross_sharpe": 3.6336527807154497,
+      "net_sharpe": -6.067348924774977,
+      "survives_costs": false
+    },
+    "AUDUSD": {
+      "accuracy": 0.5422153369481022,
+      "test_samples": 2582,
+      "gross_sharpe": 8.8840266336772,
+      "net_sharpe": 8.66157567872214,
+      "survives_costs": true
+    },
+    "USDCAD": {
+      "accuracy": 0.506294256490952,
+      "test_samples": 2542,
+      "gross_sharpe": -0.25118395595912746,
+      "net_sharpe": -0.7032552924384148,
+      "survives_costs": false
+    },
+    "_summary": {
+      "pairs_tested": 5,
+      "pairs_valid": 5,
+      "pairs_passing": 2,
+      "pass_rate": 0.4,
+      "mean_accuracy": 0.5222081233159439,
+      "std_accuracy": 0.012348816777654701,
+      "generalizes": false
+    }
+  },
+  "temporal": {
+    "2024": {
+      "accuracy": 0.5196936542669585,
+      "train_samples": 2131,
+      "test_samples": 914
+    },
+    "2025": {
+      "accuracy": 0.533373786407767,
+      "train_samples": 3842,
+      "test_samples": 1648
+    },
+    "_summary": {
+      "years_tested": 2,
+      "years_passing": 1,
+      "mean_accuracy": 0.5265337203373628,
+      "std_accuracy": 0.0068400660704042715,
+      "min_accuracy": 0.5196936542669585,
+      "max_accuracy": 0.533373786407767,
+      "is_stable": false,
+      "decay": -0.026323454266734752
+    }
+  },
+  "features": {
+    "top_20_features": [
+      [
+        "micro_price",
+        0.10920964319084576
+      ],
+      [
+        "pivot_point",
+        0.08652754861868432
+      ],
+      [
+        "carry_factor",
+        0.06755900833423945
+      ],
+      [
+        "carry_raw",
+        0.06332754166100385
+      ],
+      [
+        "obv",
+        0.049291707545093794
+      ],
+      [
+        "jump_component",
+        0.047992137364111745
+      ],
+      [
+        "hurst_exponent",
+        0.0479293062387304
+      ],
+      [
+        "rate_level_factor",
+        0.03710444666675008
+      ],
+      [
+        "realized_vol_60m",
+        0.03598331608880286
+      ],
+      [
+        "bipower_variation",
+        0.03422952064919812
+      ],
+      [
+        "yield_curve_factor",
+        0.03162902862843954
+      ],
+      [
+        "parkinson_volatility",
+        0.030504815590634227
+      ],
+      [
+        "synthetic_spread",
+        0.02970050480770308
+      ],
+      [
+        "macd_signal",
+        0.02615522362530149
+      ],
+      [
+        "kurtosis",
+        0.02110926941226778
+      ],
+      [
+        "session_volatility",
+        0.02022597369416844
+      ],
+      [
+        "skew",
+        0.019695903928162773
+      ],
+      [
+        "ema_ratio_12_26",
+        0.017732168771340748
+      ],
+      [
+        "atr_normalized",
+        0.015231572310129046
+      ],
+      [
+        "realized_vol_15m",
+        0.013372864276220697
+      ]
+    ],
+    "feature_categories": {
+      "by_category": {
+        "trend": [
+          [
+            "macd_signal",
+            0.02615522362530149
+          ],
+          [
+            "ema_ratio_12_26",
+            0.017732168771340748
+          ]
+        ],
+        "volatility": [
+          [
+            "hurst_exponent",
+            0.0479293062387304
+          ],
+          [
+            "realized_vol_60m",
+            0.03598331608880286
+          ],
+          [
+            "parkinson_volatility",
+            0.030504815590634227
+          ],
+          [
+            "session_volatility",
+            0.02022597369416844
+          ],
+          [
+            "atr_normalized",
+            0.015231572310129046
+          ],
+          [
+            "realized_vol_15m",
+            0.013372864276220697
+          ]
+        ],
+        "momentum": [],
+        "macro": [
+          [
+            "carry_factor",
+            0.06755900833423945
+          ],
+          [
+            "carry_raw",
+            0.06332754166100385
+          ],
+          [
+            "rate_level_factor",
+            0.03710444666675008
+          ],
+          [
+            "yield_curve_factor",
+            0.03162902862843954
+          ]
+        ],
+        "microstructure": [
+          [
+            "micro_price",
+            0.10920964319084576
+          ],
+          [
+            "synthetic_spread",
+            0.02970050480770308
+          ]
+        ],
+        "session": [],
+        "other": [
+          [
+            "pivot_point",
+            0.08652754861868432
+          ],
+          [
+            "obv",
+            0.049291707545093794
+          ],
+          [
+            "jump_component",
+            0.047992137364111745
+          ],
+          [
+            "bipower_variation",
+            0.03422952064919812
+          ],
+          [
+            "kurtosis",
+            0.02110926941226778
+          ],
+          [
+            "skew",
+            0.019695903928162773
+          ]
+        ]
+      },
+      "category_totals": {
+        "trend": 0.04388739239664224,
+        "volatility": 0.1632478481986857,
+        "macro": 0.19962002529043293,
+        "microstructure": 0.13891014799854884,
+        "other": 0.25884608751751853
+      }
+    },
+    "total_features": 78
+  },
+  "pnl": {
+    "num_trades": 7086,
+    "position_size": 10000,
+    "cost_per_trade": 1.2,
+    "total_costs": 8503.199999999999,
+    "gross_pnl": -14448.109558675887,
+    "net_pnl": -22951.30955867585,
+    "total_return_pct": -229.5130955867585,
+    "wins": 3402,
+    "losses": 3684,
+    "win_rate": 0.48010160880609654,
+    "avg_win": 35.19645728534886,
+    "avg_loss": -38.73226309539434,
+    "profit_factor": 0.8391522553066317,
+    "max_drawdown": 25652.76460505669,
+    "max_drawdown_pct": 256.5276460505669
+  },
+  "verdict": {
+    "walk_forward_pass": false,
+    "cross_pair_pass": false,
+    "temporal_pass": false,
+    "pnl_pass": false,
+    "passes": 0,
+    "total_tests": 4,
+    "overall": "NO RELIABLE SIGNAL - Most validations fail",
+    "confidence": "VERY LOW"
+  }
+}

@@ -1,11 +1,11 @@
 {
   "schema_version": 2.0,
   "feature_version": 2.0,
-  "timestamp": "2025-12-06T17:32:43.611318",
+  "timestamp": "2025-12-07T17:44:17.449835",
   "computed_features": {
     "dc_return_x": {
       "category": "intrinsic_time",
-      "computation_time": 5e-05,
+      "computation_time": 8.9e-05,
       "shape": [
         2592
       ],
@@ -13,7 +13,7 @@
     },
     "overshoot_return_x": {
       "category": "intrinsic_time",
-      "computation_time": 2.4e-05,
+      "computation_time": 3.6e-05,
       "shape": [
         2592
       ],
@@ -21,7 +21,7 @@
     },
     "event_frequency": {
       "category": "intrinsic_time",
-      "computation_time": 0.000247,
+      "computation_time": 0.000359,
       "shape": [
         2592
       ],
@@ -29,7 +29,7 @@
     },
     "clustering": {
       "category": "intrinsic_time",
-      "computation_time": 0.000573,
+      "computation_time": 0.000835,
       "shape": [
         2592
       ],
@@ -37,7 +37,7 @@
     },
     "multi_delta_agreement": {
       "category": "intrinsic_time",
-      "computation_time": 2.3e-05,
+      "computation_time": 3.5e-05,
       "shape": [
         2592
       ],
@@ -45,7 +45,7 @@
     },
     "intrinsic_trend_strength": {
       "category": "intrinsic_time",
-      "computation_time": 2e-05,
+      "computation_time": 3.3e-05,
       "shape": [
         2592
       ],
@@ -53,7 +53,7 @@
     },
     "realized_vol_5m": {
       "category": "volatility",
-      "computation_time": 0.000368,
+      "computation_time": 0.000525,
       "shape": [
         2592
       ],
@@ -61,7 +61,7 @@
     },
     "realized_vol_15m": {
       "category": "volatility",
-      "computation_time": 0.000295,
+      "computation_time": 0.000449,
       "shape": [
         2592
       ],
@@ -69,7 +69,7 @@
     },
     "realized_vol_60m": {
       "category": "volatility",
-      "computation_time": 0.000383,
+      "computation_time": 0.000458,
       "shape": [
         2592
       ],
@@ -77,7 +77,7 @@
     },
     "bipower_variation": {
       "category": "volatility",
-      "computation_time": 0.000356,
+      "computation_time": 0.000501,
       "shape": [
         2592
       ],
@@ -85,7 +85,7 @@
     },
     "parkinson_volatility": {
       "category": "volatility",
-      "computation_time": 0.000289,
+      "computation_time": 0.000422,
       "shape": [
         2592
       ],
@@ -93,7 +93,7 @@
     },
     "skew": {
       "category": "volatility",
-      "computation_time": 0.000262,
+      "computation_time": 0.000433,
       "shape": [
         2592
       ],
@@ -101,7 +101,7 @@
     },
     "kurtosis": {
       "category": "volatility",
-      "computation_time": 0.000266,
+      "computation_time": 0.000469,
       "shape": [
         2592
       ],
@@ -109,7 +109,7 @@
     },
     "variance_ratio": {
       "category": "volatility",
-      "computation_time": 0.000469,
+      "computation_time": 0.000756,
       "shape": [
         2592
       ],
@@ -117,7 +117,7 @@
     },
     "hurst_exponent": {
       "category": "volatility",
-      "computation_time": 0.041585,
+      "computation_time": 0.070038,
       "shape": [
         2592
       ],
@@ -125,7 +125,7 @@
     },
     "micro_price": {
       "category": "microstructure",
-      "computation_time": 4.1e-05,
+      "computation_time": 5e-05,
       "shape": [
         2592
       ],
@@ -133,7 +133,7 @@
     },
     "synthetic_spread": {
       "category": "microstructure",
-      "computation_time": 0.0003,
+      "computation_time": 0.000456,
       "shape": [
         2592
       ],
@@ -141,7 +141,7 @@
     },
     "relative_spread": {
       "category": "microstructure",
-      "computation_time": 0.000131,
+      "computation_time": 0.000199,
       "shape": [
         2592
       ],
@@ -149,7 +149,7 @@
     },
     "wick_ratio": {
       "category": "microstructure",
-      "computation_time": 0.00034,
+      "computation_time": 0.00061,
       "shape": [
         2592
       ],
@@ -157,7 +157,7 @@
     },
     "body_ratio": {
       "category": "microstructure",
-      "computation_time": 0.000483,
+      "computation_time": 0.000758,
       "shape": [
         2592
       ],
@@ -165,7 +165,7 @@
     },
     "rejection_wicks": {
       "category": "microstructure",
-      "computation_time": 0.000513,
+      "computation_time": 0.000797,
       "shape": [
         2592
       ],
@@ -173,7 +173,7 @@
     },
     "standardized_range": {
       "category": "microstructure",
-      "computation_time": 0.000423,
+      "computation_time": 0.000642,
       "shape": [
         2592
       ],
@@ -181,7 +181,7 @@
     },
     "volume_adv_ratio": {
       "category": "microstructure",
-      "computation_time": 0.000286,
+      "computation_time": 0.00033,
       "shape": [
         2592
       ],
@@ -189,7 +189,7 @@
     },
     "sma_ratio_10_20": {
       "category": "trend",
-      "computation_time": 0.000234,
+      "computation_time": 0.000408,
       "shape": [
         2592
       ],
@@ -197,7 +197,7 @@
     },
     "ema_ratio_12_26": {
       "category": "trend",
-      "computation_time": 0.00022,
+      "computation_time": 0.000338,
       "shape": [
         2592
       ],
@@ -205,7 +205,7 @@
     },
     "adx": {
       "category": "trend",
-      "computation_time": 0.001832,
+      "computation_time": 0.003031,
       "shape": [
         2592
       ],
@@ -213,7 +213,7 @@
     },
     "trend_strength": {
       "category": "trend",
-      "computation_time": 0.000766,
+      "computation_time": 0.001223,
       "shape": [
         2592
       ],
@@ -221,7 +221,7 @@
     },
     "price_position": {
       "category": "trend",
-      "computation_time": 0.000661,
+      "computation_time": 0.001149,
       "shape": [
         2592
       ],
@@ -229,7 +229,7 @@
     },
     "carry_factor": {
       "category": "fx_factors",
-      "computation_time": 0.484466,
+      "computation_time": 0.542058,
       "shape": [
         2592
       ],
@@ -237,7 +237,7 @@
     },
     "carry_raw": {
       "category": "fx_factors",
-      "computation_time": 0.465276,
+      "computation_time": 0.784617,
       "shape": [
         2592
       ],
@@ -245,7 +245,7 @@
     },
     "momentum_factor": {
       "category": "fx_factors",
-      "computation_time": 0.001956,
+      "computation_time": 0.002906,
       "shape": [
         2592
       ],
@@ -253,7 +253,7 @@
     },
     "value_factor": {
       "category": "fx_factors",
-      "computation_time": 0.001815,
+      "computation_time": 0.003062,
       "shape": [
         2592
       ],
@@ -261,7 +261,7 @@
     },
     "volatility_factor": {
       "category": "fx_factors",
-      "computation_time": 0.002297,
+      "computation_time": 0.003294,
       "shape": [
         2592
       ],
@@ -269,7 +269,7 @@
     },
     "yield_curve_factor": {
       "category": "fx_factors",
-      "computation_time": 0.208611,
+      "computation_time": 0.206502,
       "shape": [
         2592
       ],
@@ -277,7 +277,7 @@
     },
     "rate_level_factor": {
       "category": "fx_factors",
-      "computation_time": 0.104024,
+      "computation_time": 0.195063,
       "shape": [
         2592
       ],
@@ -285,7 +285,7 @@
     },
     "correlation_dxy": {
       "category": "cross_asset",
-      "computation_time": 0.004161,
+      "computation_time": 0.005451,
       "shape": [
         2592
       ],
@@ -293,7 +293,7 @@
     },
     "correlation_spx": {
       "category": "cross_asset",
-      "computation_time": 0.00365,
+      "computation_time": 0.005127,
       "shape": [
         2592
       ],
@@ -301,7 +301,7 @@
     },
     "correlation_gold": {
       "category": "cross_asset",
-      "computation_time": 0.003692,
+      "computation_time": 0.005366,
       "shape": [
         2592
       ],
@@ -309,7 +309,7 @@
     },
     "correlation_vix": {
       "category": "cross_asset",
-      "computation_time": 0.004428,
+      "computation_time": 0.005069,
       "shape": [
         2592
       ],
@@ -317,7 +317,7 @@
     },
     "correlation_oil": {
       "category": "cross_asset",
-      "computation_time": 0.003936,
+      "computation_time": 0.005164,
       "shape": [
         2592
       ],
@@ -325,7 +325,7 @@
     },
     "relative_strength_vs_dxy": {
       "category": "cross_asset",
-      "computation_time": 0.072886,
+      "computation_time": 0.134179,
       "shape": [
         2592
       ],
@@ -333,7 +333,7 @@
     },
     "cross_asset_momentum": {
       "category": "cross_asset",
-      "computation_time": 0.007503,
+      "computation_time": 0.009863,
       "shape": [
         2592
       ],
@@ -341,7 +341,7 @@
     },
     "risk_sentiment": {
       "category": "cross_asset",
-      "computation_time": 0.00652,
+      "computation_time": 0.009016,
       "shape": [
         2592
       ],
@@ -349,7 +349,7 @@
     },
     "correlation_regime": {
       "category": "cross_asset",
-      "computation_time": 0.012382,
+      "computation_time": 0.018083,
       "shape": [
         2592
       ],
@@ -357,7 +357,7 @@
     },
     "london_session": {
       "category": "session",
-      "computation_time": 0.001857,
+      "computation_time": 0.005852,
       "shape": [
         2592
       ],
@@ -365,7 +365,7 @@
     },
     "new_york_session": {
       "category": "session",
-      "computation_time": 0.001821,
+      "computation_time": 0.010821,
       "shape": [
         2592
       ],
@@ -373,7 +373,7 @@
     },
     "asia_session": {
       "category": "session",
-      "computation_time": 0.001848,
+      "computation_time": 0.002542,
       "shape": [
         2592
       ],
@@ -381,7 +381,7 @@
     },
     "session_overlap": {
       "category": "session",
-      "computation_time": 0.00239,
+      "computation_time": 0.004307,
       "shape": [
         2592
       ],
@@ -389,7 +389,7 @@
     },
     "session_volatility": {
       "category": "session",
-      "computation_time": 0.003377,
+      "computation_time": 0.004835,
       "shape": [
         2592
       ],
@@ -397,7 +397,7 @@
     },
     "bid_ask_spread": {
       "category": "liquidity",
-      "computation_time": 4.9e-05,
+      "computation_time": 7.1e-05,
       "shape": [
         2592
       ],
@@ -405,7 +405,7 @@
     },
     "spread_percentile": {
       "category": "liquidity",
-      "computation_time": 0.147634,
+      "computation_time": 0.260909,
       "shape": [
         2592
       ],
@@ -413,7 +413,7 @@
     },
     "liquidity_score": {
       "category": "liquidity",
-      "computation_time": 0.001729,
+      "computation_time": 0.002507,
       "shape": [
         2592
       ],
@@ -421,7 +421,7 @@
     },
     "rsi": {
       "category": "indicators",
-      "computation_time": 0.000592,
+      "computation_time": 0.00093,
       "shape": [
         2592
       ],
@@ -429,7 +429,7 @@
     },
     "rsi_normalized": {
       "category": "indicators",
-      "computation_time": 0.000592,
+      "computation_time": 0.000944,
       "shape": [
         2592
       ],
@@ -437,7 +437,7 @@
     },
     "macd": {
       "category": "indicators",
-      "computation_time": 0.000157,
+      "computation_time": 0.000293,
       "shape": [
         2592
       ],
@@ -445,7 +445,7 @@
     },
     "macd_signal": {
       "category": "indicators",
-      "computation_time": 0.000218,
+      "computation_time": 0.00032,
       "shape": [
         2592
       ],
@@ -453,7 +453,7 @@
     },
     "stochastic_k": {
       "category": "indicators",
-      "computation_time": 0.000395,
+      "computation_time": 0.000569,
       "shape": [
         2592
       ],
@@ -461,7 +461,7 @@
     },
     "stochastic_normalized": {
       "category": "indicators",
-      "computation_time": 0.000542,
+      "computation_time": 0.000739,
       "shape": [
         2592
       ],
@@ -469,7 +469,7 @@
     },
     "cci": {
       "category": "indicators",
-      "computation_time": 0.012044,
+      "computation_time": 0.021344,
       "shape": [
         2592
       ],
@@ -477,7 +477,7 @@
     },
     "cci_normalized": {
       "category": "indicators",
-      "computation_time": 0.01212,
+      "computation_time": 0.019314,
       "shape": [
         2592
       ],
@@ -485,7 +485,7 @@
     },
     "williams_r": {
       "category": "indicators",
-      "computation_time": 0.000416,
+      "computation_time": 0.000607,
       "shape": [
         2592
       ],
@@ -493,7 +493,7 @@
     },
     "williams_r_normalized": {
       "category": "indicators",
-      "computation_time": 0.000424,
+      "computation_time": 0.000898,
       "shape": [
         2592
       ],
@@ -501,7 +501,7 @@
     },
     "roc": {
       "category": "indicators",
-      "computation_time": 0.000173,
+      "computation_time": 0.000283,
       "shape": [
         2592
       ],
@@ -509,7 +509,7 @@
     },
     "atr": {
       "category": "indicators",
-      "computation_time": 0.00081,
+      "computation_time": 0.001498,
       "shape": [
         2592
       ],
@@ -517,7 +517,7 @@
     },
     "atr_normalized": {
       "category": "indicators",
-      "computation_time": 0.000932,
+      "computation_time": 0.001201,
       "shape": [
         2592
       ],
@@ -525,7 +525,7 @@
     },
     "obv": {
       "category": "indicators",
-      "computation_time": 0.000202,
+      "computation_time": 0.000329,
       "shape": [
         2592
       ],
@@ -533,7 +533,7 @@
     },
     "obv_normalized": {
       "category": "indicators",
-      "computation_time": 0.000486,
+      "computation_time": 0.000718,
       "shape": [
         2592
       ],
@@ -541,7 +541,7 @@
     },
     "mfi": {
       "category": "indicators",
-      "computation_time": 0.000754,
+      "computation_time": 0.001446,
       "shape": [
         2592
       ],
@@ -549,7 +549,7 @@
     },
     "mfi_normalized": {
       "category": "indicators",
-      "computation_time": 0.0007,
+      "computation_time": 0.001364,
       "shape": [
         2592
       ],
@@ -557,7 +557,7 @@
     },
     "pivot_point": {
       "category": "indicators",
-      "computation_time": 0.000278,
+      "computation_time": 0.000467,
       "shape": [
         2592
       ],
@@ -565,7 +565,7 @@
     },
     "bollinger_bandwidth": {
       "category": "indicators",
-      "computation_time": 0.000387,
+      "computation_time": 0.000638,
       "shape": [
         2592
       ],
@@ -573,7 +573,7 @@
     },
     "bollinger_percent_b": {
       "category": "indicators",
-      "computation_time": 0.000396,
+      "computation_time": 0.000623,
       "shape": [
         2592
       ],
@@ -581,7 +581,7 @@
     },
     "overshoot_ratio_x": {
       "category": "intrinsic_time",
-      "computation_time": 0.000134,
+      "computation_time": 0.000229,
       "shape": [
         2592
       ],
@@ -589,7 +589,7 @@
     },
     "volatility_of_vol": {
       "category": "volatility",
-      "computation_time": 0.000394,
+      "computation_time": 0.000908,
       "shape": [
         2592
       ],
@@ -597,7 +597,7 @@
     },
     "jump_component": {
       "category": "volatility",
-      "computation_time": 0.000741,
+      "computation_time": 0.001374,
       "shape": [
         2592
       ],
@@ -605,7 +605,7 @@
     },
     "macd_histogram": {
       "category": "indicators",
-      "computation_time": 0.000402,
+      "computation_time": 0.000613,
       "shape": [
         2592
       ],
@@ -613,7 +613,7 @@
     },
     "stochastic_d": {
       "category": "indicators",
-      "computation_time": 0.000445,
+      "computation_time": 0.000889,
       "shape": [
         2592
       ],
@@ -621,7 +621,7 @@
     },
     "pivot_distance": {
       "category": "indicators",
-      "computation_time": 0.000374,
+      "computation_time": 0.000639,
       "shape": [
         2592
       ],

@@ -1,0 +1,181 @@
+{
+  "symbol": "EURUSD",
+  "timeframe": "1h",
+  "timestamp": "2025-12-07T21:52:25.299172",
+  "data_rows": 8752,
+  "features": 78,
+  "volatility": {
+    "accuracy": 0.615003808073115,
+    "auc": 0.6333474693096144,
+    "threshold": 0.07621050830496671,
+    "train_samples": 6126,
+    "test_samples": 2626,
+    "class_balance": 0.154988575780655,
+    "avg_vol_pred_high": 0.06600550489745387,
+    "avg_vol_pred_low": 0.05717788853335281,
+    "vol_separation_ratio": 1.154388638519797,
+    "top_features": [
+      [
+        "parkinson_volatility",
+        0.09287344171151342
+      ],
+      [
+        "realized_vol_60m",
+        0.08438393570816338
+      ],
+      [
+        "synthetic_spread",
+        0.08098261525606702
+      ],
+      [
+        "obv",
+        0.07969703662121956
+      ],
+      [
+        "atr",
+        0.07722158642101304
+      ],
+      [
+        "jump_component",
+        0.05184519894323563
+      ],
+      [
+        "bipower_variation",
+        0.04973793032336723
+      ],
+      [
+        "pivot_point",
+        0.04935307235809621
+      ],
+      [
+        "atr_normalized",
+        0.042039579863449195
+      ],
+      [
+        "micro_price",
+        0.04101313560210338
+      ]
+    ],
+    "is_useful": false
+  },
+  "regime": {
+    "accuracy": 0.46171516079632463,
+    "class_accuracies": {
+      "RANGING": 0.5107692307692308,
+      "TREND_UP": 0.541033434650456,
+      "TREND_DOWN": 0.0960960960960961
+    },
+    "class_distribution": {
+      "RANGING": 0.7465543644716692,
+      "TREND_DOWN": 0.1274885145482389,
+      "TREND_UP": 0.12595712098009187
+    },
+    "train_samples": 6092,
+    "test_samples": 2612,
+    "top_features": [
+      [
+        "hurst_exponent",
+        0.09692918154963528
+      ],
+      [
+        "carry_factor",
+        0.062036489913706035
+      ],
+      [
+        "realized_vol_60m",
+        0.056672376595105205
+      ],
+      [
+        "carry_raw",
+        0.05472240122908987
+      ],
+      [
+        "micro_price",
+        0.053419026444250874
+      ],
+      [
+        "pivot_point",
+        0.04851149204165945
+      ],
+      [
+        "obv",
+        0.047949244477376474
+      ],
+      [
+        "skew",
+        0.045500979915015616
+      ],
+      [
+        "parkinson_volatility",
+        0.03921805683749825
+      ],
+      [
+        "synthetic_spread",
+        0.038881793286652706
+      ]
+    ],
+    "is_useful": true
+  },
+  "risk": {
+    "accuracy": 0.599009900990099,
+    "auc": 0.4983837507886517,
+    "true_positive_rate": 0.370304114490161,
+    "false_positive_rate": 0.33913884857281085,
+    "train_samples": 6126,
+    "test_samples": 2626,
+    "risky_period_ratio": 0.21287128712871287,
+    "avg_dd_when_pred_risky": 0.36117880765917537,
+    "avg_dd_when_pred_safe": 0.3528423050099412,
+    "dd_reduction_pct": 0.008336502649234192,
+    "top_features": [
+      [
+        "realized_vol_60m",
+        0.10062850260324804
+      ],
+      [
+        "obv",
+        0.07290526942068462
+      ],
+      [
+        "micro_price",
+        0.06350820571910563
+      ],
+      [
+        "synthetic_spread",
+        0.06209408115321732
+      ],
+      [
+        "carry_factor",
+        0.0536565327190572
+      ],
+      [
+        "parkinson_volatility",
+        0.05334063341270662
+      ],
+      [
+        "pivot_point",
+        0.05297384926949866
+      ],
+      [
+        "jump_component",
+        0.05072910945414514
+      ],
+      [
+        "atr",
+        0.04363769720779617
+      ],
+      [
+        "session_volatility",
+        0.04277356069008178
+      ]
+    ],
+    "is_useful": false
+  },
+  "summary": {
+    "useful_signals": [
+      "Regime Classification"
+    ],
+    "n_useful": 1,
+    "recommendation": "MODERATE - Regime detection works. Use for strategy selection."
+  }
+}

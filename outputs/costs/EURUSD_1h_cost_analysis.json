@@ -1,0 +1,51 @@
+{
+  "symbol": "EURUSD",
+  "timeframe": "1h",
+  "lookahead": 4,
+  "session": "london",
+  "num_samples": 1221,
+  "num_trades": 182,
+  "trades_per_day": 3.5773955773955772,
+  "gross": {
+    "sharpe": 6.470470836609541,
+    "total_return_pct": 14.344993679087311,
+    "win_rate": 0.5168447000821693,
+    "profit_factor": 1.2494806789255664,
+    "mean_return_per_trade_pct": 0.011787176400236082,
+    "max_drawdown_pct": 5.196814839582093
+  },
+  "net": {
+    "sharpe": 5.474623301696666,
+    "total_return_pct": 12.160993679087314,
+    "win_rate": 0.514379622021364,
+    "profit_factor": 1.20754150186435,
+    "mean_return_per_trade_pct": 0.009992599571969855,
+    "max_drawdown_pct": 5.232814839582092
+  },
+  "costs": {
+    "cost_per_trade_pct": 0.012000000000000002,
+    "cost_per_trade_bps": 1.2000000000000002,
+    "total_costs_pct": 2.184,
+    "cost_drag_sharpe": 0.9958475349128753,
+    "cost_drag_pct": 15.390650233340498,
+    "symbol": "EURUSD",
+    "session": "london",
+    "spread_one_way_pct": 0.003,
+    "spread_round_trip_pct": 0.006,
+    "slippage_one_way_pct": 0.001,
+    "slippage_round_trip_pct": 0.002,
+    "commission_one_way_pct": 0.002,
+    "commission_round_trip_pct": 0.004,
+    "total_round_trip_pct": 0.012000000000000002,
+    "total_round_trip_bps": 1.2000000000000002
+  },
+  "breakeven": {
+    "breakeven_winrate": 1.0,
+    "edge_consumed_by_costs_pct": 101.80555200446189,
+    "max_viable_cost_pct": 0.008251023480165256,
+    "current_cost_pct": 0.012000000000000002,
+    "cost_headroom_pct": -0.0037489765198347453
+  },
+  "survives_costs": false,
+  "recommendation": "REJECT - Costs consume 100%+ of edge. Strategy is breakeven or losing."
+}
