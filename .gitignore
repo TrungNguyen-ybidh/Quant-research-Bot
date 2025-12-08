@@ -1,3 +1,61 @@
-quant/lib/
+# =========================
+# Core Python Ignore Rules
+# =========================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+
+# Virtual environments
+.venv/
 venv/
+
+# =========================
+# Project-Specific Ignores
+# =========================
+
+# Generated outputs (DO NOT TRACK)
+outputs/
+results/
+reports/
+
+# Trained model weights
+models/trained/
+models/scalers/
+models/selectors/
+
+# External libs (your note)
+quant/lib/
+
+# Data files
+data/
+datasets/
+*.csv
+*.parquet
+
+# Model artifacts (PyTorch, Pickle)
+*.pt
+*.pth
+*.pkl
+*.joblib
+
+# Logs
+*.log
+logs/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE / Editor
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+
+# Compiled libs
+*.dll
+*.so
 *.dylib
+

@@ -478,9 +478,15 @@ class RegimeClassifier:
         if self.model is None:
             raise ValueError("Must train or load a model before predict()")
         
-        # Preprocess
+        # Preprocess (returns DataFrame)
         X_preprocessed = self.preprocessor.transform(features)
+        
+        # Select features (expects DataFrame, returns DataFrame)
         X_selected = self.selector.transform(X_preprocessed)
+        
+        # NOW convert to numpy array for the model
+        if isinstance(X_selected, pd.DataFrame):
+            X_selected = X_selected.values
         
         # Convert to tensor
         X_tensor = torch.FloatTensor(X_selected)
