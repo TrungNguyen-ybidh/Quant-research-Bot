@@ -923,7 +923,3 @@ Collects data for all symbols and timeframes defined in config.
 
 [Trung Nguyen]
 
-- Scripts documentation
-- Troubleshooting guide
-
-Should I add or modify any sections?
