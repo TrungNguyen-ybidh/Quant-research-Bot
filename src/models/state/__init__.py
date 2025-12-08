@@ -28,7 +28,9 @@ Example:
 """
 
 from .regime_classifier import RegimeClassifier
+from .volatility_regime import VolatilityRegimeClassifier
 
 __all__ = [
     'RegimeClassifier',
+    'VolatilityRegimeClassifier',
 ]
